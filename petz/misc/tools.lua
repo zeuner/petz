@@ -1,6 +1,6 @@
 local modpath, S = ...
 
-minetest.register_tool("petz:shepherd_crock", {
+minetest.register_tool("petz:shepherd_crook", {
     description = S("Shepherd's Crook"),
     inventory_image = "petz_shepherd_crook.png",
     liquids_pointable = false,
@@ -15,7 +15,7 @@ minetest.register_tool("petz:shepherd_crock", {
 
 minetest.register_craft({
     type = "shaped",
-    output = 'petz:shepherd_crock',
+    output = 'petz:shepherd_crook',
     recipe = {
         {'', 'group:wood', 'petz:whistle'},
         {'', 'group:wood', ''},
