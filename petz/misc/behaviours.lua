@@ -383,7 +383,7 @@ function petz.bh_herding(self, pos, player)
 		if self.owner == player_name  then
 			local wielded_item = player:get_wielded_item()
 			local wielded_item_name = wielded_item:get_name()
-			if wielded_item_name == "petz:shepherd_crock" then
+			if wielded_item_name == "petz:shepherd_crook" then
 				tpos = player:get_pos()
 				if vector.distance(pos, tpos) > petz.settings.herding_shepherd_distance then -- if player close
 					join_herd = true
