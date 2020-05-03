@@ -130,9 +130,11 @@ function petz.herbivore_brain(self)
 		end
 
 		--Herding
-		if prty < 4.5 then
-			if petz.bh_herding(self, pos, player) then
-				return
+		if prty < 4.5 and petz.settings.herding then
+			if mobkit.timer(self, petz.settings.herding_timing) then
+				if petz.bh_herding(self, pos, player) then
+					return
+				end
 			end
 		end
 
@@ -163,7 +165,6 @@ function petz.herbivore_brain(self)
 				--local ent = obj:get_luaentity()
 				--if ent and ent.name == "__builtin:item" then
 					--minetest.chat_send_player("singleplayer", ent.itemstring)
-					--if ent.itemstring == "petz:square_ball" then
 						--local spos = self.object:get_pos()
 						--local tpos = obj:get_pos()
 						--if vector.distance(spos, tpos) > 2 then
