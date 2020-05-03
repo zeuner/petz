@@ -50,7 +50,7 @@ petz.drop_dreamcatcher = function(self)
 end
 
 petz.dreamcatcher_save_metadata = function(self)
-	if self.tag == "" then
+	if self.tag == "" or self.owner == nil then
 		return
 	end
 	for i = 1, #petz.tamed_by_owner[self.owner] do

@@ -426,8 +426,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 	if fields.btn_yes then
 		local pet = petz.pet[player_name]
 		if pet and (mobkit.is_alive(pet)) then
-			mokapi.remove_owner(pet)
-			minetest.chat_send_player(player_name, S("You have abandoned your pet."))
+			petz.abandon_pet(pet)
 		end
 	else
 		local context = {}
