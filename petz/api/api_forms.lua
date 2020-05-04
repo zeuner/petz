@@ -160,10 +160,13 @@ petz.create_form = function(player_name, context)
 		end
 		tab_form = tamagochi_form_stuff.. form_orders
 	else
+
 		form_size.w = form_size.w + 1
 		form_size.h = form_size.h + 2
 		buttonexit_pos.y = buttonexit_pos.y - 2
-		tab_form = "image_button[0.375,0.375;1,1;"..pet_icon.."^petz_abandon_icon.png;btn_abandon;]"
+		if pet.owner then
+			tab_form = "image_button[0.375,0.375;1,1;"..pet_icon.."^petz_abandon_icon.png;btn_abandon;]"
+		end
 		if pet.herd then
 			tab_form = tab_form .. "checkbox[0.375,1.75;btn_herding;"..S("Herding")..";"..petz.vartostring(pet.herding).."]"
 		end
