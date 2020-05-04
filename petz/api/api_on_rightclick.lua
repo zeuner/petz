@@ -19,6 +19,7 @@ petz.on_rightclick = function(self, clicker)
 	end
 	local pet_name = petz.first_to_upper(self.type)
 	local player_name = clicker:get_player_name()
+	local privs = minetest.get_player_privs(player_name)
 	local wielded_item = clicker:get_wielded_item()
 	local wielded_item_name = wielded_item:get_name()
 	local show_form = false
@@ -42,8 +43,7 @@ petz.on_rightclick = function(self, clicker)
 		and mokapi.item_in_itemlist(wielded_item_name, petz.settings[self.type.."_convert"]) then
 			petz.convert(self, player_name)
 	elseif petz.check_capture_items(self, wielded_item_name, clicker, true) == true then
-		local player_name = clicker:get_player_name()
-		if (self.is_pet == true and (not(self.tamed) or (self.owner and self.owner ~= player_name)) and not(petz.settings.rob_mobs)) then
+		if self.is_pet == true and (not(privs.server) and (not(petz.settings.rob_mobs) and (not(self.tamed) or (self.owner and self.owner ~= player_name)))) then
 			minetest.chat_send_player(player_name, S("You are not the owner of the").." "..S(pet_name)..".")
 			return
 		end
@@ -97,7 +97,7 @@ petz.on_rightclick = function(self, clicker)
 		show_form = true
 	end
 	if show_form == true then
-		if (self.tamed == true) and (self.is_pet == true) and (self.owner == player_name) then
+		if (self.is_pet == true) and (privs.server or ((self.tamed == true) and (self.owner == player_name))) then
 			petz.pet[player_name]= self
 			local context = {}
 			context.tab_id = 1
