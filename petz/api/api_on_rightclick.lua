@@ -19,13 +19,19 @@ petz.on_rightclick = function(self, clicker)
 	end
 	local pet_name = petz.first_to_upper(self.type)
 	local player_name = clicker:get_player_name()
+	local is_owner
+	if self.owner == player_name then
+		is_owner = true
+	else
+		is_owner = false
+	end
 	local privs = minetest.get_player_privs(player_name)
 	local wielded_item = clicker:get_wielded_item()
 	local wielded_item_name = wielded_item:get_name()
 	local show_form = false
 	local context = {}
 
-	if ((self.is_pet == true) and (self.owner == player_name) and (self.can_be_brushed == true)) -- If brushing or spread beaver oil
+	if ((self.is_pet == true) and is_owner and (self.can_be_brushed == true)) -- If brushing or spread beaver oil
 		and ((wielded_item_name == "petz:hairbrush") or (wielded_item_name == "petz:beaver_oil")) then
 			petz.brush(self, wielded_item_name, pet_name)
 	--If feeded
@@ -49,7 +55,7 @@ petz.on_rightclick = function(self, clicker)
 			minetest.chat_send_player(player_name, S("You are not the owner of the").." "..S(pet_name)..".")
 			return
 		end
-		if self.owner== nil or self.owner== "" or (self.owner ~= player_name and petz.settings.rob_mobs == true) then
+		if self.owner== nil or self.owner== "" or (not(is_owner) and petz.settings.rob_mobs == true) then
 			mokapi.set_owner(self, player_name)
 			petz.do_tame(self)
 		end
@@ -57,7 +63,7 @@ petz.on_rightclick = function(self, clicker)
 		minetest.chat_send_player("singleplayer", S("Your").." "..S(pet_name).." "..S("has been captured")..".")
 	elseif self.breed and wielded_item_name == petz.settings[self.type.."_breed"] and not(self.is_baby) then
 		petz.breed(self, clicker, wielded_item, wielded_item_name)
-	elseif (wielded_item_name == "petz:dreamcatcher") and (self.tamed == true) and (self.is_pet == true) and (self.owner == player_name) then
+	elseif (wielded_item_name == "petz:dreamcatcher") and (self.tamed == true) and (self.is_pet == true) and is_owner then
 		petz.put_dreamcatcher(self, clicker, wielded_item, wielded_item_name)
 	elseif petz.settings[self.type.."_colorized"] == true and minetest.get_item_group(wielded_item_name, "dye") > 0  then --Colorize textures
 		local color_group = petz.get_color_group(wielded_item_name)
@@ -67,7 +73,7 @@ petz.on_rightclick = function(self, clicker)
 	--
 	--Pet Specifics
 	--below here
-	elseif self.type == "lamb" then
+	elseif self.type == "lamb" and is_owner then
 		if (wielded_item_name == "mobs:shears" or wielded_item_name == "petz:shears") and clicker:get_inventory() and not self.shaved then
 			petz.lamb_wool_shave(self, clicker) --shear it!
 		else
@@ -87,9 +93,9 @@ petz.on_rightclick = function(self, clicker)
 		petz.bottled(self, clicker)
 	elseif (self.type == "pony") and (wielded_item_name == "petz:horseshoe") and (self.owner == player_name) then
 		petz.put_horseshoe(self, clicker)
-	elseif self.is_mountable == true then
+	elseif self.is_mountable == true and is_owner then
 		show_form = petz.mount(self, clicker, wielded_item, wielded_item_name)
-	elseif self.feathered then
+	elseif self.feathered and is_owner then
 		if (wielded_item_name == "mobs:shears" or wielded_item_name == "petz:shears") and clicker:get_inventory() then
 			petz.cut_feather(self, clicker) --cut a feather
 		else
@@ -100,12 +106,13 @@ petz.on_rightclick = function(self, clicker)
 		show_form = true
 	else --Else open the Form
 		if (self.is_pet == true) and ((privs.server and self.owner and not(self.owner == player_name)) or ((self.tamed == true) and (self.owner == player_name))) then
+			context.buy = false
 			show_form = true
 		end
 	end
-	if show_form == true then
-			petz.pet[player_name]= self
-			context.tab_id = 1
-			minetest.show_formspec(player_name, "petz:form_orders", petz.create_form(player_name, context))
+	if show_form then
+		context.tab_id = 1
+		petz.pet[player_name]= self
+		minetest.show_formspec(player_name, "petz:form_orders", petz.create_form(player_name, context))
 	end
 end
