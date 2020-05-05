@@ -95,7 +95,7 @@ petz.on_rightclick = function(self, clicker)
 		else
 			show_form = true
 		end
-	elseif petz.settings.selling and not(minetest.is_singleplayer()) and self.for_sale and not(self.owner == player_name) then --Buy Form
+	elseif petz.settings.selling and not(minetest.is_singleplayer()) and self.for_sale and self.owner and not(self.owner == player_name) then --Buy Form
 		context.buy = true
 		show_form = true
 	else --Else open the Form
