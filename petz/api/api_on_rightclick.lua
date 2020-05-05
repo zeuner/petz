@@ -97,7 +97,7 @@ petz.on_rightclick = function(self, clicker)
 		show_form = true
 	end
 	if show_form == true then
-		if (self.is_pet == true) and (privs.server or ((self.tamed == true) and (self.owner == player_name))) then
+		if (self.is_pet == true) and ((privs.server and self.owner and not(self.owner == player_name)) or ((self.tamed == true) and (self.owner == player_name))) then
 			petz.pet[player_name]= self
 			local context = {}
 			context.tab_id = 1
