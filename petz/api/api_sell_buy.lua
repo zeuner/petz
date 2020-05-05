@@ -4,6 +4,9 @@ petz.buy = function(self, buyer)
 	local buyer_name= buyer:get_player_name()
 	local inv_buyer= buyer:get_inventory()
 	local seller_name = self.owner
+	if not seller_name then
+		return
+	end
 	local seller = minetest.get_player_by_name(seller_name)
 	local item_index = self.exchange_item_index
 	local item_amount = self.exchange_item_amount

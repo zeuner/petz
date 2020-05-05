@@ -166,12 +166,14 @@ petz.create_form = function(player_name, context)
 		buttonexit_pos.y = buttonexit_pos.y - 2
 		local item_description = petz.settings.selling_exchange_items_list[pet.exchange_item_index].description or ""
 		local item_amount = pet.exchange_item_amount or 1
+		local item_inventory_image = petz.settings.selling_exchange_items_list[pet.exchange_item_index].inventory_image or ""
 		tab_form = tab_form ..
-			"label[0.375,1.0;"..S("Cost")..": ]"..
-			"label[2,1;"..item_description.."]"..
-			"label[0.375,2;"..S("Amount")..":]"..
-			"label[2,2;"..tostring(item_amount).."]"..
-			"button_exit[2,3;2,1;btn_buy;"..S("Buy").."]"
+			"label[0.375,1.85;"..S("Cost")..": ]"..
+			"label[2,1.85;"..item_description.."]"..
+			"image[2.5,0.375;1,1;"..item_inventory_image.."]"..
+			"label[0.375,2.5;"..S("Amount")..":]"..
+			"label[2,2.5;"..tostring(item_amount).."]"..
+			"button_exit[2,3.25;2,1;btn_buy;"..S("Buy").."]"
 	elseif context.tab_id == 2 and not(context.buy) then
 		form_size.w = form_size.w + 1
 		form_size.h = form_size.h + 2

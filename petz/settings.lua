@@ -35,8 +35,9 @@ petz.settings.selling_exchange_items_list = {}
 for i = 1, #petz.settings.selling_exchange_items do
 	local exchange_item = petz.settings.selling_exchange_items[i]
 	local exchange_item_description = minetest.registered_items[exchange_item].description
+	local exchange_item_inventory_image = minetest.registered_items[exchange_item].inventory_image
 	if exchange_item_description then
-		petz.settings.selling_exchange_items_list[i] = {name = exchange_item, description = exchange_item_description}
+		petz.settings.selling_exchange_items_list[i] = {name = exchange_item, description = exchange_item_description, inventory_image = exchange_item_inventory_image}
 	end
 end
 --Spawn Engine
