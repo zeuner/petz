@@ -28,6 +28,17 @@ petz.settings.igniter_damage = tonumber(settings:get("igniter_damage")) --lava &
 petz.settings.type_api = settings:get("type_api", "mobs_redo")
 --Capture Mobs
 petz.settings.rob_mobs = settings:get_bool("rob_mobs", false)
+--Selling
+petz.settings.selling = settings:get_bool("selling", false)
+petz.settings.selling_exchange_items = string.split(settings:get("selling_exchange_items", ""), ",")
+petz.settings.selling_exchange_items_list = {}
+for i = 1, #petz.settings.selling_exchange_items do
+	local exchange_item = petz.settings.selling_exchange_items[i]
+	local exchange_item_description = minetest.registered_items[exchange_item].description
+	if exchange_item_description then
+		petz.settings.selling_exchange_items_list[i] = {name = exchange_item, description = exchange_item_description}
+	end
+end
 --Spawn Engine
 petz.settings.spawn_interval = tonumber(settings:get("spawn_interval"))
 petz.settings.spawn_chance = tonumber(settings:get("spawn_chance"))

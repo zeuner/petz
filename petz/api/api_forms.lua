@@ -17,8 +17,8 @@ petz.create_form = function(player_name, context)
 		context.tab_id = 1
     end
     local pet_icon = "petz_spawnegg_"..pet.type..".png"
-	if context.tab_id == 1 then
-		pet_image_icon = "image[0.375,0.375;1,1;"..pet_icon.."]"
+	if context.tab_id == 1 and not(context.buy) then
+		local pet_image_icon = "image[0.375,0.375;1,1;"..pet_icon.."]"
 		if pet.affinity == nil then
 			pet.affinity = 0
 		end
@@ -159,8 +159,20 @@ petz.create_form = function(player_name, context)
 			form_orders =	form_orders .. "button_exit[3.375,5.5;2,1;btn_guard;"..S("Guard").."]"
 		end
 		tab_form = tamagochi_form_stuff.. form_orders
-	else
-
+	elseif context.tab_id == 1 and context.buy then
+		form_size.w = form_size.w + 1
+		form_size.h = form_size.h + 2
+		buttonexit_pos.x = buttonexit_pos.x + 1
+		buttonexit_pos.y = buttonexit_pos.y - 2
+		local item_description = petz.settings.selling_exchange_items_list[pet.exchange_item_index].description or ""
+		local item_amount = pet.exchange_item_amount or 1
+		tab_form = tab_form ..
+			"label[0.375,1.0;"..S("Cost")..": ]"..
+			"label[2,1;"..item_description.."]"..
+			"label[0.375,2;"..S("Amount")..":]"..
+			"label[2,2;"..tostring(item_amount).."]"..
+			"button_exit[2,3;2,1;btn_buy;"..S("Buy").."]"
+	elseif context.tab_id == 2 and not(context.buy) then
 		form_size.w = form_size.w + 1
 		form_size.h = form_size.h + 2
 		buttonexit_pos.y = buttonexit_pos.y - 2
@@ -170,11 +182,51 @@ petz.create_form = function(player_name, context)
 				tab_form = tab_form .. "checkbox[0.375,1.75;btn_herding;"..S("Herding")..";"..petz.vartostring(pet.herding).."]"
 			end
 		end
+	elseif context.tab_id == 3 and petz.settings.selling and not(context.buy) then
+		form_size.w = form_size.w + 1
+		form_size.h = form_size.h + 2
+		buttonexit_pos.y = buttonexit_pos.y - 2
+		local exchange_items = ''
+		local dropdown_index = 1
+		for i = 1, #petz.settings.selling_exchange_items_list do
+			description = petz.settings.selling_exchange_items_list[i].description
+			if description then
+				if i > 1 then
+					exchange_items = exchange_items .. ","
+				end
+				exchange_items = exchange_items .. description
+				if i == pet.exchange_item_index then
+					dropdown_index = i
+				end
+			end
+		end
+		tab_form = tab_form ..
+		"checkbox[0.375,0.5;chk_for_sale;"..S("For Sale")..";"..petz.vartostring(pet.for_sale).."]"..
+		"label[0.375,1.0;"..S("Item").."]"..
+		"textlist[0.375,1.25;3,3;txtlst_exchange_items;"..exchange_items..";"..tostring(dropdown_index).."]"..
+		"label[4,1;"..S("Amount").."]"..
+		"field[4,1.25;1,0.45;fld_exchange_item_amount;;"..tostring(pet.exchange_item_amount).."]"
+		--"scrollbaroptions[min=1;max=99;arrows=show;smallstep=1;largestep=1]"..
+		--"scrollbar[4,1.0;0.45,0.45;vertical;scrbar_exchange_item_amount;10]"
 	end
+	--Tab Header
+	local tab_main = S("Main")
+	local tab_other = S("Other")
+	local tab_shop = S("Shop")
+	local tab_header
+	if context.buy then
+		tab_header = tab_shop
+	else
+		tab_header =tab_main..","..tab_other
+		if not(minetest.is_singleplayer()) then
+			tab_header = tab_header..","..tab_shop
+		end
+	end
+	--minetest.chat_send_player("singleplayer", tab_header)
 	final_form =
 		"size["..(form_size.w+0.875)..","..(form_size.h+1)..";]"..
 		"real_coordinates[true]"..
-		"tabheader[0,0;tabheader;"..S("Main")..","..S("Other")..";"..tostring(context.tab_id)..";true;false]"..
+		"tabheader[0,0;tabheader;"..tab_header..";"..tostring(context.tab_id)..";true;false]"..
 		tab_form..
 		"style_type[button_exit;bgcolor=#006699;textcolor=white]"..
 		"button_exit["..(buttonexit_pos.x+0.5)..","..(buttonexit_pos.y+0.75)..";1,1;btn_close;"..S("Close").."]"
@@ -261,6 +313,17 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 			minetest.show_formspec(player_name, "petz:abandon_form", petz.get_abandon_confirmation())
 		elseif fields.btn_herding then
 			pet.herding = mobkit.remember(pet, "herding", minetest.is_yes(fields.btn_herding))
+		elseif fields.chk_for_sale then
+			pet.for_sale = mobkit.remember(pet, "for_sale", minetest.is_yes(fields.chk_for_sale))
+		elseif fields.fld_exchange_item_amount or fields.txtlst_exchange_items then
+			local event = minetest.explode_textlist_event(fields.txtlst_exchange_items)
+			if event.type == "CHG" then
+				--minetest.chat_send_all(event.index)
+				pet.exchange_item_index = mobkit.remember(pet, "exchange_item_index", event.index)
+			end
+			pet.exchange_item_amount = mobkit.remember(pet, "exchange_item_amount", mokapi.delimit_number( tonumber(fields.fld_exchange_item_amount), {min=1, max=99}) or 1)
+		elseif fields.btn_buy then
+			petz.buy(pet, player)
 		end
 		if fields.ipt_name then
 			pet.tag = minetest.formspec_escape(string.sub(fields.ipt_name, 1 , 12))
@@ -429,7 +492,8 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 	if fields.btn_yes then
 		local pet = petz.pet[player_name]
 		if pet and (mobkit.is_alive(pet)) then
-			petz.abandon_pet(pet)
+			local msg = S("You've abandoned your").." "..pet.type
+			petz.abandon_pet(pet, msg)
 		end
 	else
 		local context = {}
