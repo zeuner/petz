@@ -18,7 +18,7 @@ function petz.spawn_is_in_deep(nodepos)
 	local node_1_above = mobkit.nodeatpos(nodepos)
 	nodepos.y= nodepos.y + 1
 	local node_2_above = mobkit.nodeatpos(nodepos)
-	if node_1_above.drawtype == 'liquid' or node_2_above.drawtype == 'liquid' then
+	if node_1_above.drawtype == 'liquid' and node_2_above.drawtype == 'liquid' then
 		return true
 	else
 		return false
