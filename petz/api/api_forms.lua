@@ -173,6 +173,7 @@ petz.create_form = function(player_name, context)
 			"image[2.5,0.375;1,1;"..item_inventory_image.."]"..
 			"label[0.375,2.5;"..S("Amount")..":]"..
 			"label[2,2.5;"..tostring(item_amount).."]"..
+			"style_type[button_exit;bgcolor=#333600;textcolor=white]"..
 			"button_exit[2,3.25;2,1;btn_buy;"..S("Buy").."]"
 	elseif context.tab_id == 2 and not(context.buy) then
 		form_size.w = form_size.w + 1
