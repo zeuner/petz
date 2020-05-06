@@ -105,7 +105,7 @@ petz.on_rightclick = function(self, clicker)
 		context.buy = true
 		show_form = true
 	else --Else open the Form
-		if (self.is_pet == true) and ((privs.server and self.owner and not(self.owner == player_name)) or ((self.tamed == true) and (self.owner == player_name))) then
+		if (self.is_pet == true) and ((self.tamed == true) and (self.owner == player_name)) then
 			context.buy = false
 			show_form = true
 		end
