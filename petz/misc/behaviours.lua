@@ -856,7 +856,7 @@ end
 function mobkit.hq_aqua_jump(self, prty)
 	local func = function(self)
 		--minetest.chat_send_player("singleplayer", "test")
-		local vel_impulse = 4.0
+		local vel_impulse = 2.5
 		local velocity = {
 			x = self.max_speed * (vel_impulse/3),
 			y = self.max_speed * vel_impulse,
