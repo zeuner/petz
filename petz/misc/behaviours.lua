@@ -1065,9 +1065,9 @@ function mobkit.lq_mountdriver(self)
 		local velo
 		if velo == nil then
 			velo= {
-				x= self.max_speed_forward/2,
+				x= self.max_speed_forward/3,
 				y= 0,
-				z= self.max_speed_forward/2,
+				z= self.max_speed_forward/3,
 			}
 		end
 		local velocity = get_v(velo)
