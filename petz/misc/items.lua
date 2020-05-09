@@ -103,7 +103,7 @@ minetest.register_craft({
 minetest.register_craftitem("petz:bucket_milk", {
     description = S("Milk Bucket"),
     stack_max = 1,
-    wield_image = {"petz_bucket_milk.png"},
+    wield_image = "petz_bucket_milk.png",
     inventory_image = "petz_bucket_milk.png",
     groups = {milk_bucket = 1, food = 3, food_milk = 1},
     on_use = function (itemstack, user, pointed_thing)
@@ -116,7 +116,7 @@ minetest.register_craftitem("petz:bucket_milk", {
 --Turtle Shell
 minetest.register_craftitem("petz:turtle_shell", {
     description = S("Turtle Shell"),
-    wield_image = {"petz_turtle_shell.png"},
+    wield_image = "petz_turtle_shell.png",
     inventory_image = "petz_turtle_shell.png",
     groups = {},
 })
