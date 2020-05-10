@@ -39,7 +39,7 @@ function petz.herbivore_brain(self)
 		return
 	end
 
-	if self.can_fly then
+	if self.can_fly or self.status == "climb" then
 		self.object:set_acceleration({x=0, y=0, z=0})
 	end
 
@@ -146,7 +146,7 @@ function petz.herbivore_brain(self)
 				{x = pos.x + view_range, y = pos.y + 1, z = pos.z + view_range},
 				{"petz:pet_bowl"})
 			if #nearby_nodes >= 1 then
-				local tpos = 	nearby_nodes[1] --the first match
+				local tpos = nearby_nodes[1] --the first match
 				local distance = vector.distance(pos, tpos)
 				if distance > 2 then
 					mobkit.hq_goto(self, 4, tpos)
@@ -185,11 +185,11 @@ function petz.herbivore_brain(self)
 		mokapi.make_misc_sound(self, petz.settings.misc_sound_chance, petz.settings.max_hear_distance)
 
 		if prty < 3 then
-			--if self.is_arboreal == true then
-				--if petz.check_if_climb(self) then
-					--mobkit.hq_climb(self, 3)
-				--end
-			--end
+			if self.is_arboreal == true then
+				if petz.bh_climb(self, pos, 3) then
+					return
+				end
+			end
 		end
 
 		if prty < 2 then	--Sleep Behaviour

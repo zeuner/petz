@@ -354,3 +354,14 @@ Author: Alexander
 http://www.orangefreesounds.com/goat-sounds/
 License: The sound effect is permitted for non-commercial use
 under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)”
+--------------------------------------------
+filename: petz_squirrel_squeak.ogg
+Author: Alexander
+http://www.orangefreesounds.com/squirrel-sounds/
+License: The sound effect is permitted for commercial use
+under license Creative Commons Attribution 4.0 International License
+--------------------------------------------
+filename: petz_squirrel_moaning.ogg
+Author: Partners In Rhyme
+https://www.freesoundeffects.com/free-track/sq2-466210/
+License: Free
