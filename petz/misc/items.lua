@@ -550,3 +550,5 @@ minetest.register_craftitem("petz:spider_eye", {
 	description = S("Spider Eye"),
 	inventory_image = "petz_spider_eye.png",
 })
+
+
