@@ -410,6 +410,9 @@ for i=1, 2 do
 			--minetest.chat_send_all("texture= "..tostring(meta:get_int("petz:texture_no")))
 			if texture_no then
 				ent_ref = ent:get_luaentity()
+				if texture_no == 0 then
+					texture_no = math.random(1, #ent_ref.textures)
+				end
 				local props = {}
 				props.textures = {ent_ref.textures[texture_no]}
 				ent:set_properties(props)
@@ -551,4 +554,23 @@ minetest.register_craftitem("petz:spider_eye", {
 	inventory_image = "petz_spider_eye.png",
 })
 
-
+minetest.register_node("petz:squirrel_cage", {
+	description = S("Squirrel Cage"),
+	drawtype = "glasslike_framed",
+	tiles = {"petz_squirrel_cage.png", "petz_squirrel_cage.png"},
+	special_tiles = {"petz_squirrel_cage.png"},
+	--inventory_image = "petz_squirrel_cage.png",
+	walkable = true,
+	groups = {snappy = 2},
+	paramtype = "light",
+	--paramtype2 = "glasslikeliquidlevel",
+	param2 = 50,
+	sunlight_propagates = true,
+	use_texture_alpha = true,
+	light_source = default.LIGHT_MAX - 1,
+	sounds = default.node_sound_glass_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = { -0.25, -0.5, -0.25, 0.25, 0.4, 0.25 },
+	},
+})
