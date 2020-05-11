@@ -829,9 +829,9 @@ function petz.check_tree(self)
 	local node_top_name= mobkit.node_name_in(self, "top")
 	--minetest.chat_send_player("singleplayer", node_top_name)
 	if node_front_name and minetest.registered_nodes[node_front_name]
+		and petz.is_tree_like(node_front_name)
 		and node_top_name and minetest.registered_nodes[node_top_name]
-		and node_top_name == "air"
-		and petz.is_tree_like(node_front_name) then
+		and node_top_name == "air" then
 			return true
 	else
 		return false
@@ -840,10 +840,9 @@ end
 
 function petz.is_tree_like(node)
 	if minetest.registered_nodes[node].groups.wood
-		or minetest.registered_nodes[node].groups.leaves
-			or minetest.registered_nodes[node].groups.tree
-				then
-				return true
+			or minetest.registered_nodes[node].groups.leaves
+				or minetest.registered_nodes[node].groups.tree then
+					return true
 	else
 		return false
 	end
@@ -875,6 +874,8 @@ function mobkit.hq_climb(self, prty)
 	local func=function(self)
 		if not petz.check_tree(self) then
 			self.status = ""
+			mobkit.clear_queue_high(self)
+			mobkit.clear_queue_low(self)
 			return true
 		end
 		if mobkit.is_queue_empty_low(self) then
@@ -897,10 +898,11 @@ function mobkit.lq_climb(self)
 				local climb = false
 				local climb_pos
 				for i =1, 8 do
-					pos.y = pos.y + 1
+					pos.y = pos.y + 1.1
 					local node_name = minetest.get_node_or_nil(pos).name
 					if node_name == "air" then
 						climb = true
+						pos.y = pos.y + 0.5
 						climb_pos = pos
 						break
 					elseif not(petz.is_tree_like(node_name)) then
@@ -910,6 +912,7 @@ function mobkit.lq_climb(self)
 				end
 				if climb then
 					self.object:set_pos(climb_pos)
+					self.status = ""
 				end
 				mobkit.clear_queue_high(self)
 				mobkit.clear_queue_low(self)
@@ -921,7 +924,6 @@ function mobkit.lq_climb(self)
 	end
 	mobkit.queue_low(self, func)
 end
-
 
 ---
 --- Aquatic Behaviours
