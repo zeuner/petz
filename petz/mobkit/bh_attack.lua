@@ -131,7 +131,6 @@ function petz.lq_jumpattack(self,height,target)
 			local yaw = self.object:get_yaw()
 			local dir = minetest.yaw_to_dir(yaw)
 			local apos = mobkit.pos_translate2d(pos,yaw,self.attack.range)
-
 			--if petz.is_pos_in_box(self,apos,tgtpos,tgtbox) then	--bite
 				target:punch(self.object,1,self.attack)
 					-- bounce off
