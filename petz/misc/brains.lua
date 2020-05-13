@@ -268,7 +268,7 @@ function petz.predator_brain(self)
 						local prey = mobkit.get_closest_entity(self, preys[i])	-- look for prey
 						if prey then
 							--minetest.chat_send_player("singleplayer", "got it")
-							mobkit.hq_hunt(self, 12, prey) -- and chase it
+							petz.hq_hunt(self, 12, prey) -- and chase it
 							return
 						end
 					end
@@ -557,7 +557,7 @@ function petz.semiaquatic_brain(self)
 							if petz.isinliquid(self) then
 								mobkit.hq_aqua_attack(self, 10, player, 6)				-- get revenge
 							else
-								mobkit.hq_hunt(self, 10, player)
+								petz.hq_hunt(self, 10, player)
 							end
 						end
 					end
@@ -634,7 +634,7 @@ function petz.monster_brain(self)
 						if prey then
 							self.max_speed = 2.5
 							--minetest.chat_send_player("singleplayer", "got it")
-							mobkit.hq_hunt(self, 12, prey) -- and chase it
+							petz.hq_hunt(self, 12, prey) -- and chase it
 							return
 						end
 					end
@@ -654,7 +654,7 @@ function petz.monster_brain(self)
 					local player_pos = player:get_pos()
 					if vector.distance(pos, player_pos) <= self.view_range then	-- if player close
 						self.max_speed = 2.5
-						mobkit.hq_hunt(self, 10, player)
+						petz.hq_hunt(self, 10, player)
 						return
 					end
 				end
