@@ -132,7 +132,7 @@ function petz.lq_jumpattack(self,height,target)
 			local dir = minetest.yaw_to_dir(yaw)
 			local apos = mobkit.pos_translate2d(pos,yaw,self.attack.range)
 
-			if petz.is_pos_in_box(self,apos,tgtpos,tgtbox) then	--bite
+			--if petz.is_pos_in_box(self,apos,tgtpos,tgtbox) then	--bite
 				target:punch(self.object,1,self.attack)
 					-- bounce off
 				local vy = self.object:get_velocity().y
@@ -140,7 +140,7 @@ function petz.lq_jumpattack(self,height,target)
 					-- play attack sound if defined
 				mobkit.make_sound(self,'attack')
 				phase=4
-			end
+			--end
 		end
 	end
 	mobkit.queue_low(self,func)
