@@ -71,12 +71,12 @@ petz.on_die = function(self)
 	--Particles Effect
 	if petz.settings.death_effect then
 		minetest.add_particlespawner({
-			amount = 40,
+			amount = 20,
 			time = 0.001,
 			minpos = pos,
 			maxpos = pos,
-			minvel = vector.new(-5,-5,-5),
-			maxvel = vector.new(5,5,5),
+			minvel = vector.new(-2,-2,-2),
+			maxvel = vector.new(2,2,2),
 			minacc = {x=0, y=0, z=0},
 			maxacc = {x=0, y=0, z=0},
 			minexptime = 1.1,
