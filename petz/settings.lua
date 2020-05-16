@@ -28,6 +28,8 @@ petz.settings.igniter_damage = tonumber(settings:get("igniter_damage")) --lava &
 petz.settings.type_api = settings:get("type_api", "mobs_redo")
 --Capture Mobs
 petz.settings.rob_mobs = settings:get_bool("rob_mobs", false)
+--Look at
+petz.settings.look_at = settings:get_bool("look_at", true)
 --Selling
 petz.settings.selling = settings:get_bool("selling", false)
 petz.settings.selling_exchange_items = string.split(settings:get("selling_exchange_items", ""), ",")

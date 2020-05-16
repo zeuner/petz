@@ -64,6 +64,8 @@ function petz.herbivore_brain(self)
 
 		local player = mobkit.get_nearby_player(self)
 
+		--if player then petz.move_head(self, player:get_pos()) end
+
 		--Runaway from predator
 		if prty < 18  then
 			if petz.bh_runaway_from_predator(self, pos) == true then

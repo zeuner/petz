@@ -1,21 +1,21 @@
 local modpath, S = ...
 
 --Pet Hairbrush
-    minetest.register_craftitem("petz:hairbrush", {
-        description = S("Hairbrush"),
-        inventory_image = "petz_hairbrush.png",
-        wield_image = "petz_hairbrush.png"
-    })
+minetest.register_craftitem("petz:hairbrush", {
+	description = S("Hairbrush"),
+	inventory_image = "petz_hairbrush.png",
+	wield_image = "petz_hairbrush.png"
+})
 
-    minetest.register_craft({
-        type = "shaped",
-        output = "petz:hairbrush",
-        recipe = {
-            {"", "", ""},
-            {"", "default:stick", "farming:string"},
-            {"default:stick", "", ""},
-        }
-    })
+minetest.register_craft({
+	type = "shaped",
+	output = "petz:hairbrush",
+	recipe = {
+		{"", "", ""},
+		{"", "default:stick", "farming:string"},
+		{"default:stick", "", ""},
+	}
+})
 
 --Pet Bowl
 minetest.register_node("petz:pet_bowl", {
