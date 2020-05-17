@@ -192,7 +192,7 @@ petz.create_form = function(player_name, context)
 		local exchange_items = ''
 		local dropdown_index = 1
 		for i = 1, #petz.settings.selling_exchange_items_list do
-			description = petz.settings.selling_exchange_items_list[i].description
+			local description = petz.settings.selling_exchange_items_list[i].description
 			if description then
 				if i > 1 then
 					exchange_items = exchange_items .. ","

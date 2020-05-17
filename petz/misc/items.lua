@@ -303,7 +303,7 @@ minetest.register_craft({
 minetest.register_tool("petz:lasso", {
 	description = S("Lasso"),
 	inventory_image = "petz_lasso.png",
-	groups = {flammable = 2},
+	groups = {flammable = 2, lasso = 1},
 })
 
 minetest.register_craft({
@@ -409,7 +409,7 @@ for i=1, 2 do
 			local texture_no = meta:get_int("petz:texture_no")
 			--minetest.chat_send_all("texture= "..tostring(meta:get_int("petz:texture_no")))
 			if texture_no then
-				ent_ref = ent:get_luaentity()
+				local ent_ref = ent:get_luaentity()
 				if texture_no == 0 then
 					texture_no = math.random(1, #ent_ref.textures)
 				end

@@ -37,7 +37,6 @@ for i=1, 2 do
 		type_of_egg = "node",
 		max_height = 5,
 		has_affinity = false,
-		is_wild = false,
 		give_orders = false,
 		can_be_brushed = false,
 		capture_item = "net",

@@ -565,7 +565,6 @@ minetest.register_craft({
 --Cat Basket
 minetest.register_node("petz:cat_basket", {
     description = S("Cat Basket"),
-    groups = {snappy=1, bendy=2, cracky=1},
     sounds = default.node_sound_wood_defaults(),
 	tiles = {
 		"petz_cat_basket_top.png",

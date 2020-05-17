@@ -59,7 +59,7 @@ function mobkit.lq_dumbfly(self, speed_factor)
 				fly_status = "ascend"
 				y_impulse = 3
 			end
-			height_from_ground = mobkit.check_height(self) --returns 'false' if the mob flies higher that max_height, otherwise returns the height from the ground
+			local height_from_ground = mobkit.check_height(self) --returns 'false' if the mob flies higher that max_height, otherwise returns the height from the ground
 			--minetest.chat_send_player("singleplayer", tostring(height_from_ground))
 			if not(height_from_ground) or mobkit.node_name_in(self, "top") ~= "air" then --check if max height, then stand or descend, or a node above the petz
 				random_num = math.random(1, 100)
