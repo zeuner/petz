@@ -1,9 +1,9 @@
 --------------------------------------------
 file name: petz_kitty_meow.ogg
-Author: Alexander
-http://www.orangefreesounds.com/cat-meow-audio-clip/
-License: "Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)"
---------------------------------------------
+Author: ebcrosby
+https://freesound.org/people/ebcrosby/sounds/334434/
+License: "This work is licensed under the Attribution License.
+-------------------------------
 file name: petz_dog_bark.ogg
 Author: Partners In Rhyme
 https://www.freesoundeffects.com/free-track/dogbrk-89468/
@@ -43,39 +43,27 @@ License: The sound effect is permitted for commercial use
 under license Creative Commons Attribution 4.0 International License
 --------------------------------------------
 filename: petz_lion_roar.ogg
-Author: Alexander
-http://www.orangefreesounds.com/lion-roaring-sound/
-License: The sound effect is permitted for non-commercial use
-under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+Author: Mike Koenig
+http://soundbible.com/1483-Lion-Growling.html
+License: Attribution 3.0
 --------------------------------------------
 filename: petz_lion_moaning.ogg
-Author: Alexander
-http://www.orangefreesounds.com/roar-sound-effect/
-License: The sound effect is permitted for non-commercial use
-under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+Author: Mike Koenig
+http://soundbible.com/1272-Roaring-Lion.html
+License: Attribution 3.0
 --------------------------------------------
 filename: petz_whip.ogg
-Author: Alexander
-http://www.orangefreesounds.com/whip-sound-effect/
-License: The sound effect is permitted for non-commercial use
-under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+Author: CGEffex
+https://freesound.org/people/CGEffex/sounds/93100/
+License: This work is licensed under the Attribution License.
 --------------------------------------------
 filename: petz_calf_moo.ogg
-Author: Alexander
-http://www.orangefreesounds.com/moo-sound/
-License: The sound effect is permitted for non-commercial use
-under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+Author: runs
+License: CC BY-SA 4.0
 --------------------------------------------
 filename: petz_calf_moaning.ogg
-Author: Alexander
-http://www.orangefreesounds.com/moo-sound/
-License: The sound effect is permitted for non-commercial use
-under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
---------------------------------------------
-filename: petz_panda_sound.ogg
-Author: San Diego Zoo
-https://animals.sandiegozoo.org/animals/giant-panda
-License: Unknown
+Author: runs
+License: CC BY-SA 4.0
 --------------------------------------------
 filename: petz_panda_moaning.ogg
 Author: San Diego Zoo
@@ -112,10 +100,9 @@ License: The sound effect is permitted for non-commercial use
 under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
 --------------------------------------------
 filename: petz_chicken_cluck.ogg
-Author: Alexander
-http://www.orangefreesounds.com/chickens-clucking/
-License: The sound effect is permitted for non-commercial use
-under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+Author: JarredGibb
+https://freesound.org/people/JarredGibb/sounds/233093/
+License: This work is licensed under the Creative Commons 0 License.
 --------------------------------------------
 filename: petz_chicken_moaning.ogg
 Author: Alexander
@@ -135,10 +122,9 @@ https://www.freesoundeffects.com/free-sounds/monkey-10054/
 License: https://www.freesoundeffects.com/licence.php
 --------------------------------------------
 filename: petz_piggy_squeal.ogg
-Author: Alexander
-http://www.orangefreesounds.com/pigs-noises/
-License: The sound effect is permitted for non-commercial use
-under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+Author: yottasounds
+https://freesound.org/people/yottasounds/sounds/174615/
+License: This work is licensed under the Attribution License.
 --------------------------------------------
 filename: petz_piggy_moaning.ogg
 Author: Alexander
@@ -161,7 +147,7 @@ under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
 filename: petz_wolf_howl.ogg
 Author: Alexander
 http://www.orangefreesounds.com/wolf-howl-sound/
-License: The sound effect is permitted for commercial use under license “public  domain”
+License: The sound effect is permitted for commercial use under license “public domain”
 --------------------------------------------
 filename: petz_wolf_moaning.ogg
 Author: Alexander
@@ -273,10 +259,9 @@ License: The sound effect is permitted for non-commercial use
 under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)”
 --------------------------------------------
 filenames: petz_pop_sound.ogg
-Author: Alexander
-http://www.orangefreesounds.com/pop-sound-effect/
-The sound effect is permitted for non-commercial use
-under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)”
+Author: greenvwbeetle
+https://freesound.org/people/greenvwbeetle/sounds/244655/
+This work is licensed under the Creative Commons 0 License.
 --------------------------------------------
 filenames: petz_werewolf_sound.ogg
 Author: Alexander
@@ -291,10 +276,9 @@ The sound effect is permitted for commercial use
 under license Creative Commons Attribution 4.0 International License
 --------------------------------------------
 filenames: petz_put_sound.ogg
-Author: Alexander
-http://www.orangefreesounds.com/button-click-sound-effect/
-The sound effect is permitted for non-commercial use
-under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)”
+Author: 14FPanskaKremenakova_Marie
+https://freesound.org/people/14FPanskaKremenakova_Marie/sounds/418521/
+This work is licensed under the Creative Commons 0 License.
 --------------------------------------------
 filename: petz_spider_attack.ogg
 Author: salamisound
@@ -328,10 +312,9 @@ https://www.zapsplat.com/music/horse-blow-lips/
 License: https://www.zapsplat.com/license-type/standard-license/
 --------------------------------------------
 filename: petz_kitty_meow2.ogg
-Author: Alexander
-http://www.orangefreesounds.com/kitty-meows/
-License: The sound effect is permitted for non-commercial use
-under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)”
+Author: FairhavenCollection
+https://freesound.org/people/FairhavenCollection/sounds/372900/
+License: This work is licensed under the Creative Commons 0 License.
 --------------------------------------------
 filename: petz_kitty_meow3.ogg
 Author: Alexander
