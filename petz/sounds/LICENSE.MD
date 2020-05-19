@@ -2,7 +2,7 @@
 file name: petz_kitty_meow.ogg
 Author: ebcrosby
 https://freesound.org/people/ebcrosby/sounds/334434/
-License: "This work is licensed under the Attribution License.
+License: This work is licensed under the Attribution License.
 -------------------------------
 file name: petz_dog_bark.ogg
 Author: Partners In Rhyme
@@ -20,19 +20,19 @@ https://www.freesoundslibrary.com/dog-barking-short-sound-effect/
 License: Attribution 4.0 International (CC BY 4.0)
 --------------------------------------------
 file name: petz_brushing.ogg
-Author: Zapsplat
-https://www.zapsplat.com/music/person-brushing-hair/
-License: Attribution License
+Author: DJames619
+https://freesound.org/people/DJames619/sounds/389247/
+License: This work is licensed under the Creative Commons 0 License.
 --------------------------------------------
 file name: petz_kitty_moaning.ogg
-Author: Zapsplat
-https://www.zapsplat.com/music/cat-moaning-meow-hungry/
-License: Attribution License
+Author: Taira Komori
+https://freesound.org/people/Taira%20Komori/sounds/211687/
+License: This work is licensed under the Attribution License.
 --------------------------------------------
 file name: petz_puppy_moaning.ogg
-Author: Zapsplat
-https://www.zapsplat.com/music/dog-barking-springer-spaniel-2/
-License: Attribution License
+Author: apolloaiello
+https://freesound.org/people/apolloaiello/sounds/276267/
+License: Creative Commons This work is licensed under the Creative Commons 0 License.
 --------------------------------------------
 filename: petz_ducky_quack.ogg
 Author: Alexander
@@ -155,6 +155,10 @@ Author: Caroline Ford
 http://soundbible.com/1014-Pig-Snort.html
 License: Attribution 3.0
 --------------------------------------------
+filename: petz_beaver_sound.ogg
+Author: runs
+License: CC0
+--------------------------------------------
 filename: petz_pigeon_cooing.ogg
 Author: mcmalonzo
 https://freesound.org/people/mcmalonzo/sounds/342094/
@@ -213,9 +217,9 @@ License: The sound effect is permitted for commercial use
 under license Creative Commons Attribution 4.0 International License
 --------------------------------------------
 filenames: petz_bee_hum.ogg
-Author: Zapsplat
-https://www.zapsplat.com/music/close-humming-of-a-bee-fly-up-close-land/
-License: Attribution License
+Author: CGEffex
+https://freesound.org/people/CGEffex/sounds/99956/
+License: This work is licensed under the Attribution License.
 --------------------------------------------
 filenames: petz_monster_laugh.ogg
 Author: danlucaz
@@ -311,14 +315,14 @@ https://freesound.org/people/foxen10/sounds/149024/
 License: This work is licensed under the Creative Commons 0 License.
 --------------------------------------------
 filename: petz_pony_snort.ogg
-Author: www.zapsplat.com
-https://www.zapsplat.com/music/horse-snort-human-mimicking-1/
-License: Attribution License
+Author: o_ciz
+https://freesound.org/people/o_ciz/sounds/475483/
+License: This work is licensed under the Creative Commons 0 License.
 --------------------------------------------
 filename: petz_pony_blow_lips.ogg
-Author: www.zapsplat.com
-https://www.zapsplat.com/music/horse-blow-lips/
-License: Attribution License
+Author: GoodListener
+https://freesound.org/people/GoodListener/sounds/322454/
+License: This work is licensed under the Attribution License.
 --------------------------------------------
 filename: petz_kitty_meow2.ogg
 Author: FairhavenCollection
@@ -332,9 +336,9 @@ License: The sound effect is permitted for commercial use
 under license “Public Domain”
 --------------------------------------------
 filename: petz_replace.ogg
-Author: www.zapsplat.com
-https://www.zapsplat.com/music/cow-eat-grass-or-foliage-single-chew/
-License: Attribution License
+Author: Ondruska
+https://freesound.org/people/Ondruska/sounds/360685/
+License: This work is licensed under the Attribution License.
 --------------------------------------------
 filename: petz_rat_squeak.ogg
 Author: toefur
