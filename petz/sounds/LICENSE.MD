@@ -166,7 +166,7 @@ License: This work is licensed under the Creative Commons 0 License.
 --------------------------------------------
 filename: petz_pigeon_moaning.ogg
 Author: dobroide
-https://freesound.org/people/dobroide/sounds/45922/
+https://freesound.org/people/dobroide/sounds/36048/
 License: This work is licensed under the Attribution License.
 --------------------------------------------
 filename: petz_wolf_howl.ogg
