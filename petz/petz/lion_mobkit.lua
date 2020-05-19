@@ -60,6 +60,7 @@ minetest.register_entity("petz:"..pet_name,{
 	sounds = {
 		misc = "petz_lion_roar",
 		moaning = "petz_lion_moaning",
+		attack = "petz_lion_attack",
 	},
 
 	--punch_start = 83, stand4_end = 95,

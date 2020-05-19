@@ -57,7 +57,7 @@ minetest.register_entity("petz:"..pet_name,{
 		climb= {range={x=78, y=90}, speed=5, loop=true},
 	},
 	sounds = {
-		misc = "petz_chimp_hoo",
+		misc = {"petz_chimp_hoo", "petz_chimp_hoo_2"},
 		moaning = "petz_chimp_moaning",
 	},
 

@@ -62,7 +62,7 @@ minetest.register_entity("petz:"..pet_name,{
 		},
 	},
 	sounds = {
-		misc = "petz_chicken_cluck",
+		misc = {"petz_chicken_cluck", "petz_chicken_cluck_2", "petz_chicken_cluck_3"},
 	},
 
 	logic = petz.herbivore_brain,

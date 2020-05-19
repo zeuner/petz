@@ -9,6 +9,16 @@ Author: Partners In Rhyme
 https://www.freesoundeffects.com/free-track/dogbrk-89468/
 License: Free
 --------------------------------------------
+file name: petz_dog_bark_2.ogg
+Author: www.free-sounds.net
+https://www.free-sounds.net/dog-sounds.htm
+License: Free
+--------------------------------------------
+filename: petz_calf_bark_3.ogg
+Author: Spanac
+https://www.freesoundslibrary.com/dog-barking-short-sound-effect/
+License: Attribution 4.0 International (CC BY 4.0)
+--------------------------------------------
 file name: petz_brushing.ogg
 Author: Zapsplat
 https://www.zapsplat.com/music/person-brushing-hair/
@@ -47,6 +57,11 @@ Author: Mike Koenig
 http://soundbible.com/1483-Lion-Growling.html
 License: Attribution 3.0
 --------------------------------------------
+filename: petz_lion_attack.ogg
+Author: SGAK
+https://freesound.org/people/SGAK/sounds/467762/
+License: This work is licensed under the Creative Commons 0 License.
+--------------------------------------------
 filename: petz_lion_moaning.ogg
 Author: Mike Koenig
 http://soundbible.com/1272-Roaring-Lion.html
@@ -59,11 +74,16 @@ License: This work is licensed under the Attribution License.
 --------------------------------------------
 filename: petz_calf_moo.ogg
 Author: runs
-License: CC BY-SA 4.0
+License: Creative Commons 0 License
+--------------------------------------------
+filename: petz_calf_moo_2.ogg
+Author: Spanac
+https://www.freesoundslibrary.com/cow-moo-sounds/
+License: Attribution 4.0 International (CC BY 4.0)
 --------------------------------------------
 filename: petz_calf_moaning.ogg
 Author: runs
-License: CC BY-SA 4.0
+License: Creative Commons 0 License
 --------------------------------------------
 filename: petz_panda_moaning.ogg
 Author: San Diego Zoo
@@ -71,16 +91,14 @@ https://animals.sandiegozoo.org/animals/giant-panda
 License: Unknown
 --------------------------------------------
 filename: petz_frog_croak.ogg
-Author: Alexander
-http://www.orangefreesounds.com/frog-sound/
-License: The sound effect is permitted for non-commercial use
-under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+Author: Attribution 3.0
+http://soundbible.com/1336-Frog-Croaking.html
+License: snottyboy
 --------------------------------------------
 filename: petz_grizzly_growl.ogg
-Author: Alexander
-http://www.orangefreesounds.com/bear-sounds/
-Licence: The sound effect is permitted for non-commercial
-use under license “Personal Use Only”
+Author: d1523825
+https://freesound.org/people/d1523825/sounds/504636/
+Licence: This work is licensed under the Attribution License.
 --------------------------------------------
 filename: petz_grizzly_moaning.ogg
 Author: Mike Koenig
@@ -88,33 +106,39 @@ http://soundbible.com/1142-Bear.html
 Licence: Attribution 3.0
 --------------------------------------------
 filename: petz_pony_neigh.ogg
-Author: Alexander
-http://www.orangefreesounds.com/horse-neighing/
-License: The sound effect is permitted for non-commercial use
-under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+Author: GoodListener
+https://freesound.org/people/GoodListener/sounds/322443/
+License: This work is licensed under the Attribution License.
 --------------------------------------------
 filename: petz_pony_moaning.ogg
-Author: Alexander
-http://www.orangefreesounds.com/horse-neigh/
-License: The sound effect is permitted for non-commercial use
-under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+Author: dobroide
+https://freesound.org/people/dobroide/sounds/18229/
+License: This work is licensed under the Attribution License.
 --------------------------------------------
 filename: petz_chicken_cluck.ogg
 Author: JarredGibb
 https://freesound.org/people/JarredGibb/sounds/233093/
 License: This work is licensed under the Creative Commons 0 License.
 --------------------------------------------
+filename: petz_chicken_cluck_2.ogg & petz_chicken_cluck_3.ogg
+Author: www.bonson.ca
+https://freesound.org/people/www.bonson.ca/sounds/24967/
+License: This work is licensed under the Attribution License.
+--------------------------------------------
 filename: petz_chicken_moaning.ogg
-Author: Alexander
-http://www.orangefreesounds.com/chickens-clucking/
-License: The sound effect is permitted for non-commercial use
-under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+Author: Rudmer_Rotteveel
+https://freesound.org/people/Rudmer_Rotteveel/sounds/316920/
+License: This work is licensed under the Creative Commons 0 License.
 --------------------------------------------
 filename: petz_chimp_hoo.ogg
-Author: Alexander
-http://www.orangefreesounds.com/mp3-monkey/
-License: The sound effect is permitted for non-commercial use
-under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+Author: AntumDeluge
+https://freesound.org/people/AntumDeluge/sounds/417816/
+License: This work is licensed under the Creative Commons 0 License.
+--------------------------------------------
+filename: petz_chimp_hoo_2.ogg
+Author: www.free-sounds.net
+https://www.free-sounds.net/monkey-sounds.htm
+License: Free
 --------------------------------------------
 filename: petz_chimp_moaning.ogg
 Author: freesoundeffects
@@ -126,11 +150,15 @@ Author: yottasounds
 https://freesound.org/people/yottasounds/sounds/174615/
 License: This work is licensed under the Attribution License.
 --------------------------------------------
+filename: petz_piggy_oink.ogg
+Author: Mike Koenig
+http://soundbible.com/1221-Pig-Oink.html
+License: Attribution 3.0
+--------------------------------------------
 filename: petz_piggy_moaning.ogg
-Author: Alexander
-http://www.orangefreesounds.com/pig-noises/
-License: The sound effect is permitted for non-commercial use
-under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+Author: Caroline Ford
+http://soundbible.com/1014-Pig-Snort.html
+License: Attribution 3.0
 --------------------------------------------
 filename: petz_pigeon_cooing.ogg
 Author: Alexander
@@ -177,11 +205,15 @@ Author: Daniel Simon
 http://soundbible.com/2144-Guinea-Pig.html
 License: Attribution 3.0
 --------------------------------------------
-filenames: petz_dolphin_clicking.ogg & petz_dolphin_moaning.ogg
-Author: Alexander
-http://www.orangefreesounds.com/dolphin-sound/
-License: The sound effect is permitted for non-commercial use
-under license “Personal Use Only”
+filenames: petz_dolphin_clicking.ogg
+Author: theatertech455
+https://freesound.org/people/theatertech455/sounds/343166/
+License: This work is licensed under the Creative Commons 0 License.
+--------------------------------------------
+filenames: petz_dolphin_moaning.ogg
+Author: Spanac
+https://www.freesoundslibrary.com/dolphin-laugh-sound/
+License: Attribution 4.0 International (CC BY 4.0)
 --------------------------------------------
 filenames: petz_splash.ogg
 Author: Alexander
@@ -296,10 +328,9 @@ https://freesound.org/people/maugusto_sfx/sounds/468030/
 License: This work is licensed under the Creative Commons 0 License.
 --------------------------------------------
 filename: petz_horse_winny.ogg
-Author: Alexander
-http://www.orangefreesounds.com/horse-whinny-3/
-License: The song is permitted for non-commercial use
-under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)”
+Author: foxen10
+https://freesound.org/people/foxen10/sounds/149024/
+License: This work is licensed under the Creative Commons 0 License.
 --------------------------------------------
 filename: petz_pony_snort.ogg
 Author: www.zapsplat.com
@@ -332,11 +363,15 @@ Author: toefur
 https://freesound.org/people/toefur/sounds/288941/
 License: This work is licensed under the Creative Commons 0 License.
 --------------------------------------------
-filename: petz_goat_bleat.ogg & petz_goat_moaning.ogg
-Author: Alexander
-http://www.orangefreesounds.com/goat-sounds/
-License: The sound effect is permitted for non-commercial use
-under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)”
+filename: petz_goat_moaning.ogg
+Author: Julalvr
+https://freesound.org/people/Julalvr/sounds/429871/
+License: This work is licensed under the Creative Commons 0 License.
+--------------------------------------------
+filename: petz_goat_bleat.ogg
+Author: beskhu
+https://freesound.org/people/beskhu/sounds/273911/
+License: This work is licensed under the Creative Commons 0 License.
 --------------------------------------------
 filename: petz_squirrel_squeak.ogg
 Author: Alexander

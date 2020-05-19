@@ -71,7 +71,7 @@ minetest.register_entity("petz:"..pet_name,{
 		},
 	},
 	sounds = {
-		misc = "petz_calf_moo",
+		misc = {"petz_calf_moo", "petz_calf_moo_2"},
 		moaning = "petz_calf_moaning",
 	},
 

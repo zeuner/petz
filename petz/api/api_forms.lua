@@ -277,8 +277,9 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 				end
 			end, pet)
 		elseif fields.btn_perch_shoulder then
-			pet.object:set_attach(player, "Arm_Left", {x=0.5,y=-6.25,z=0}, {x=0,y=0,z=180})
+			petz.standhere(pet)
 			mobkit.animate(pet, "stand")
+			pet.object:set_attach(player, "Arm_Left", {x= 0.5, y= -6.25, z=0}, {x=0, y=0, z=180})
 			minetest.after(120.0, function(pet)
 				if mobkit.is_alive(pet) then
 					pet.object:set_detach()
