@@ -157,7 +157,7 @@ License: Attribution 3.0
 --------------------------------------------
 filename: petz_beaver_sound.ogg
 Author: runs
-License: CC0
+License: This work is licensed under the Creative Commons 0 License.
 --------------------------------------------
 filename: petz_pigeon_cooing.ogg
 Author: mcmalonzo
@@ -304,6 +304,10 @@ Author: cemagar
 https://freesound.org/people/cemagar/sounds/120348/
 License: This work is licensed under the Attribution License.
 --------------------------------------------
+filename: petz_moth_chirp.ogg & petz_moth_moaning.ogg
+Author: runs
+License: This work is licensed under the Creative Commons 0 License.
+--------------------------------------------
 filename: petz_horse_gallop.ogg
 Author: maugusto_sfx
 https://freesound.org/people/maugusto_sfx/sounds/468030/
@@ -365,8 +369,3 @@ filename: petz_squirrel_moaning.ogg
 Author: Partners In Rhyme
 https://www.freesoundeffects.com/free-track/sq2-466210/
 License: Free
---------------------------------------------
-filename: petz_moth_chirp.ogg & petz_moth_moaning.ogg
-Author: runs
-https://www.freesoundeffects.com/free-track/sq2-466210/
-License: CC0
