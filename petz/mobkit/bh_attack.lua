@@ -205,8 +205,8 @@ function mobkit.lq_flyattack(self, target)
 			local vy = self.object:get_velocity().y -- bounce off
 			local yaw = self.object:get_yaw()
 			local dir = minetest.yaw_to_dir(yaw)
-			self.object:set_velocity({x=dir.x*-3,y=vy,z=dir.z*-3})
-			mobkit.make_sound(self,'attack') -- play attack sound if defined
+			self.object:set_velocity({x= dir.x*-3, y=vy, z=dir.z * -3})
+			mobkit.make_sound(self, 'attack') -- play attack sound if defined
 			if self.attack_kamikaze then
 				self.hp = 0 --bees must to die!!!
 			end
@@ -217,4 +217,9 @@ function mobkit.lq_flyattack(self, target)
 		return true
 	end
 	mobkit.queue_low(self,func)
+end
+
+function petz.rpg_damage(self)
+	local attack = self.attack or nil
+	local max_speed = max_speed or 0
 end
