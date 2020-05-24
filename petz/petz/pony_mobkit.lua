@@ -27,6 +27,7 @@ minetest.register_entity("petz:"..pet_name, {
 	driver = nil,
 	init_tamagochi_timer = true,
 	is_pet = true,
+	eat_hay = true,
 	has_affinity = true,
 	breed = true,
 	is_wild = false,

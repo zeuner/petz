@@ -1,6 +1,9 @@
 local modpath, S, creative_mode = ...
 
 petz.insert_tamed_by_owner = function(self)
+	if not self.owner then
+		return
+	end
 	if (petz.tamed_by_owner[self.owner] == nil) then
 		petz.tamed_by_owner[self.owner] = {}
 	end

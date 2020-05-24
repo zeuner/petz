@@ -23,7 +23,7 @@ minetest.register_node("petz:pet_bowl", {
     inventory_image = "petz_pet_bowl_inv.png",
     wield_image = "petz_pet_bowl_inv.png",
     tiles = {"petz_pet_bowl.png"},
-    groups = {snappy=1, bendy=2, cracky=1},
+    groups = {snappy=1, bendy=2, cracky=1, feeder=1},
     sounds = default.node_sound_stone_defaults(),
     paramtype = "light",
     drawtype = "nodebox",

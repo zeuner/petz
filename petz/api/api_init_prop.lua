@@ -118,9 +118,7 @@ petz.load_vars = function(self)
 	for key, value in pairs(petz.dyn_prop) do
 		self[key] = mobkit.recall(self, key) or value["default"]
 	end
-	if self.owner then --Insert in the table of petz by owner
-		petz.insert_tamed_by_owner(self)
-	end
+	petz.insert_tamed_by_owner(self)
 	petz.cleanup_prop(self)	 --Reset some vars
 end
 

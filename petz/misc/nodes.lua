@@ -695,3 +695,5 @@ minetest.register_node("petz:honey_block", {
 	light_source = default.LIGHT_MAX - 1,
 	sounds = default.node_sound_glass_defaults(),
 })
+
+
