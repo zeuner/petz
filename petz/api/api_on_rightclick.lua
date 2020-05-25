@@ -37,7 +37,7 @@ petz.on_rightclick = function(self, clicker)
 	--If feeded
 	elseif mokapi.feed(self, clicker, petz.settings.tamagochi_feed_hunger_rate, S("@1 at full health (@2)", S(petz.first_to_upper(self.type)), tostring(self.hp)), "moaning") then
 		if mokapi.tame(self, 5, player_name, S("@1 has been tamed!", S(petz.first_to_upper(self.type))), {max = petz.settings.max_tamed_by_owner, count= petz.count_tamed_by_owner(player_name), msg = S("You cannot tame more petz! (@1 max.)", tostring(petz.settings.max_tamed_by_owner))}) then
-			petz.do_tame(self)
+			petz.after_tame(self)
 		end
 		if self.tamed== true then
 			petz.update_nametag(self)
@@ -57,7 +57,7 @@ petz.on_rightclick = function(self, clicker)
 		end
 		if self.owner== nil or self.owner== "" or (not(is_owner) and petz.settings.rob_mobs == true) then
 			mokapi.set_owner(self, player_name)
-			petz.do_tame(self)
+			petz.after_tame(self)
 		end
 		petz.capture(self, clicker, true)
 		minetest.chat_send_player("singleplayer", S("Your").." "..S(pet_name).." "..S("has been captured")..".")

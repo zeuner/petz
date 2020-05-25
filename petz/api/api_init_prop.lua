@@ -135,7 +135,8 @@ function petz.set_initial_properties(self, staticdata, dtime_s)
 	--
 	--1. NEW MOBS
 	--
-	if mobkit.recall(self, "set_vars") == nil and captured_mob == false then	--set some vars
+	--dtime_s == 0 differenciates between loaded and new created mobs
+	if dtime_s == 0 and captured_mob == false then	--set some vars
 		--Mob Specific
 		--Lamb
 		if self.type == "lamb" then --set a random color

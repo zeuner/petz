@@ -12,7 +12,7 @@ petz.create_pet = function(placer, itemstack, pet_name, pos)
 	local self = mob:get_luaentity()
 	if self.is_wild == false and not(self.owner) then --not monster and not owner
 		mokapi.set_owner(self, placer:get_player_name()) --set owner
-		petz.do_tame(self)
+		petz.after_tame(self)
 	end
 	itemstack:take_item() -- since mob is unique we remove egg once spawned
 	return self
@@ -53,7 +53,7 @@ petz.check_capture_items = function(self, wielded_item_name, clicker, check_inv_
 		return
 	end
 	local capture_item_type
-	if wielded_item_name == "mobs:lasso" or wielded_item_name == "petz:lasso" then
+	if wielded_item_name == petz.settings.lasso then
 		capture_item_type = "lasso"
 	elseif (wielded_item_name == "mobs:net") or (wielded_item_name == "fireflies:bug_net") then
 		capture_item_type = "net"

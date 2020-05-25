@@ -299,21 +299,23 @@ minetest.register_craft({
 	}
 })
 
--- Lasso
-minetest.register_tool("petz:lasso", {
-	description = S("Lasso"),
-	inventory_image = "petz_lasso.png",
-	groups = {flammable = 2, lasso = 1},
-})
+if petz.settings.lasso == "petz:lasso" then
+	-- Lasso
+	minetest.register_tool("petz:lasso", {
+		description = S("Lasso"),
+		inventory_image = "petz_lasso.png",
+		groups = {flammable = 2, lasso = 1},
+	})
 
-minetest.register_craft({
-	output = "petz:lasso",
-	recipe = {
-		{"farming:string", "farming:string", "farming:string"},
-		{"farming:string", "", "farming:string"},
-		{"", "farming:string", ""},
-	}
-})
+	minetest.register_craft({
+		output = "petz:lasso",
+		recipe = {
+			{"farming:string", "farming:string", "farming:string"},
+			{"farming:string", "", "farming:string"},
+			{"", "farming:string", ""},
+		}
+	})
+end
 
 -- Saddle
 
@@ -417,7 +419,7 @@ for i=1, 2 do
 				props.textures = {ent_ref.textures[texture_no]}
 				ent:set_properties(props)
 			end
-			--petz.do_tame(moth)
+			--petz.after_tame(moth)
 		end,
 	})
 end

@@ -49,7 +49,7 @@ petz.do_feed = function(self)
 	self.fed = mobkit.remember(self, "fed", true)
 end
 
-petz.do_tame = function(self)
+petz.after_tame = function(self)
 	petz.insert_tamed_by_owner(self)
 	if petz.settings.tamagochi_mode == true then
 		self.init_tamagochi_timer = true
@@ -78,7 +78,7 @@ petz.tame_whip= function(self, hitter)
 				if self.lashing_count >= petz.settings.lashing_tame_count then
 					self.lashing_count = mobkit.remember(self, "lashing_count", 0)	 --reset to 0
 					mokapi.set_owner(self, hitter:get_player_name())
-					petz.do_tame(self)
+					petz.after_tame(self)
 					minetest.chat_send_player(self.owner, S("The").." "..S(petz.first_to_upper(self.type)).." "..S("has been tamed."))
 					mobkit.clear_queue_high(self) -- do not attack
 				end

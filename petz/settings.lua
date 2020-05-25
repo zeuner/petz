@@ -27,6 +27,7 @@ petz.settings.igniter_damage = tonumber(settings:get("igniter_damage")) --lava &
 --API Type
 petz.settings.type_api = settings:get("type_api", "mobs_redo")
 --Capture Mobs
+petz.settings.lasso = settings:get("lasso", "petz:lasso")
 petz.settings.rob_mobs = settings:get_bool("rob_mobs", false)
 --Look at
 petz.settings.look_at = settings:get_bool("look_at", true)
