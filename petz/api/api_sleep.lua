@@ -65,6 +65,8 @@ end
 petz.sleep = function(self, prty, force)
 	self.status = mobkit.remember(self, "status", "sleep")
 	mobkit.animate(self, 'sleep')
+	local texture = self.textures[self.texture_no]
+	self.object:set_properties(self, {textures = {texture.."^petz_"..self.type.."_sleep.png"}}) --sleeping eyes
 	mobkit.hq_sleep(self, prty, force)
 end
 
@@ -88,6 +90,8 @@ function mobkit.hq_sleep(self, prty, force)
 					and (self.sleep_at_night and not(petz.is_night())) or (self.sleep_at_day and petz.is_night())
 					or (timeofday < sleep_start_time) or (timeofday > sleep_end_time) then
 						mobkit.clear_queue_high(self) --awake
+						local texture = self.textures[self.texture_no]
+						self.object:set_properties(self, {textures = {texture}}) --quit sleeping eyes
 						self.status = mobkit.remember(self, "status", "")
 						return true
 				else
