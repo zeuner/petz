@@ -195,6 +195,17 @@ function petz.herbivore_brain(self)
 			petz.bh_sleep(self, 2)
 		end
 
+		--Look_at Behaviour
+		if prty < 1 then
+			if petz.settings.look_at and player and self.head and petz.is_standing(self) and not(self.status == "looking") then
+				if math.random(1, petz.settings.look_at_random) == 1 then
+					if petz.hq_look_at(self, player:get_pos(), 1) then
+						return
+					end
+				end
+			end
+		end
+
 		--Roam default
 		if mobkit.is_queue_empty_high(self) and self.status == "" then
 			if not(self.can_fly) then

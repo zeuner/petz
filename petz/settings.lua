@@ -69,6 +69,9 @@ petz.settings.poop_rate = tonumber(settings:get("poop_rate", "200"))
 petz.settings.poop_decay = tonumber(settings:get("poop_decay", "1200"))
 --Smoke particles when die
 petz.settings.death_effect = settings:get_bool("death_effect", true)
+--Look_at
+petz.settings.look_at = settings:get_bool("look_at", true)
+petz.settings.look_at_random = tonumber(settings:get("look_at_random", "10"))
 --Cobweb
 petz.settings.cobweb_decay = tonumber(settings:get("cobweb_decay", "1200"))
 --Mount Pointable Driver
