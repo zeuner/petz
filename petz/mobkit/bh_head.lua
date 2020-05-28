@@ -18,7 +18,6 @@ function petz.hq_look_at(self, player_pos, prty)
 					mobkit.clear_queue_low(self)
 					mobkit.clear_queue_high(self)
 					petz.return_head_to_origin(self)
-					self.looking = false
 					self.status = ""
 					return true
 				end
