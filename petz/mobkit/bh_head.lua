@@ -39,7 +39,7 @@ function petz.move_head(self, tpos)
 		self.head_position = vector.add(head_position, self.head.position_correction) --correction of the pos by cause of the bug, and save it
 	end
 	local direction = vector.direction(pos, tpos) -- vector direction from mob to player's eyes
-	look_at_dir = vector.normalize(direction) -- important: normalize the vector
+	local look_at_dir = vector.normalize(direction) -- important: normalize the vector
 	-- Functions to calculate the pitch & yaw (in degrees):
 	local pitch = mokapi.yaw_to_degrees(math.asin(look_at_dir.y))
 	local yaw =mokapi.yaw_to_degrees(math.atan2(look_at_dir.x, look_at_dir.z))
