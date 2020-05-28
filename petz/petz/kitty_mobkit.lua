@@ -45,12 +45,12 @@ minetest.register_entity("petz:"..pet_name, {
 	max_hp = 10,
 	makes_footstep_sound = false,
 	head = {
-		rotation_origin = vector.new(-90, 0, 0), --in degrees
+		rotation_origin = vector.new(-90, 0, 0), --in degrees, normally values are -90, 0, 90
 		position_correction = vector.new(0, 0.3, -0.3),
 	},
 	attack={range=0.5, damage_groups={fleshy=3}},
 	animation = {
-		idle = {range={x=12, y=13}, speed=0, loop=false},
+		idle = {range={x=0, y=0}, speed=25, loop=false},
 		walk={range={x=1, y=12}, speed=25, loop=true},
 		run={range={x=13, y=25}, speed=25, loop=true},
 		stand={
