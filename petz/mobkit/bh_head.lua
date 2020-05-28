@@ -44,7 +44,7 @@ function petz.move_head(self, tpos)
 	local pitch = mokapi.yaw_to_degrees(math.asin(look_at_dir.y))
 	local yaw =mokapi.yaw_to_degrees(math.atan2(look_at_dir.x, look_at_dir.z))
 	local body_yaw = mokapi.yaw_to_degrees(self.object:get_yaw()) --yaw of the body in degrees
-	final_yaw = yaw + body_yaw --get the head yaw in reference with the body
+	local final_yaw = yaw + body_yaw --get the head yaw in reference with the body
 	head_rotation = {x= pitch, y= final_yaw, z= 0} -- the head movement {pitch, yaw, roll}
 	self.head_rotation = vector.add(head_rotation, self.head.rotation_origin) --the offset for the rotation, depends on the blender model
 	self.object:set_bone_position("head", self.head_position, self.head_rotation) --set the head movement
