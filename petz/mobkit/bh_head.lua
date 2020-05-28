@@ -39,11 +39,11 @@ function petz.move_head(self, tpos)
 		self.head_position = vector.add(head_position, self.head.position_correction) --correction of the pos by cause of the bug, and save it
 	end
 	local direction = vector.direction(pos, tpos) -- vector direction from mob to player's eyes
-	local body_yaw = mokapi.yaw_to_degrees(self.object:get_yaw()) --yaw of the body in degrees
 	look_at_dir = vector.normalize(direction) -- important: normalize the vector
 	-- Functions to calculate the pitch & yaw (in degrees):
 	local pitch = mokapi.yaw_to_degrees(math.asin(look_at_dir.y))
 	local yaw =mokapi.yaw_to_degrees(math.atan2(look_at_dir.x, look_at_dir.z))
+	local body_yaw = mokapi.yaw_to_degrees(self.object:get_yaw()) --yaw of the body in degrees
 	final_yaw = yaw + body_yaw --get the head yaw in reference with the body
 	head_rotation = {x= pitch, y= final_yaw, z= 0} -- the head movement {pitch, yaw, roll}
 	self.head_rotation = vector.add(head_rotation, self.head.rotation_origin) --the offset for the rotation, depends on the blender model
