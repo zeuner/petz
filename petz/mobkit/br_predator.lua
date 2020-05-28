@@ -89,7 +89,7 @@ function petz.predator_brain(self)
 		mokapi.make_misc_sound(self, petz.settings.misc_sound_chance, petz.settings.max_hear_distance)
 
 		--Roam default
-		if mobkit.is_queue_empty_high(self) and self.status == "" then
+		if mobkit.is_queue_empty_high(self) and not(self.status) then
 			mobkit.hq_roam(self, 0)
 		end
 

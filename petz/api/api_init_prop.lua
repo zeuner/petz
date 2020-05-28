@@ -252,7 +252,7 @@ function petz.set_initial_properties(self, staticdata, dtime_s)
 		self.food_count = mobkit.remember(self, "food_count", 0)
 		self.was_killed_by_player = mobkit.remember(self, "was_killed_by_player", false)
 		self.dreamcatcher = mobkit.remember(self, "dreamcatcher", false)
-		self.status = mobkit.remember(self, "status", "")
+		self.status = mobkit.remember(self, "status", nil)
 		self.warn_attack = mobkit.remember(self, "warn_attack", false)
 		self.colorized = mobkit.remember(self, "colorized", nil)
 		self.convert = mobkit.remember(self, "convert", nil)
@@ -357,15 +357,15 @@ function petz.set_initial_properties(self, staticdata, dtime_s)
 	if self.is_pet and self.tamed then
 		petz.update_nametag(self)
 	end
-	if self.status and self.status ~= "" then
+	if self.status then
 		if self.status == "stand" then
 			petz.standhere(self)
 		elseif self.status == "guard" then
 			petz.guard(self)
 		elseif self.status == "sleep" then
-			self.status = "" --reset
+			self.status = nil --reset
 		else
-			self.status = ""
+			self.status = nil
 		end
 	end
 end

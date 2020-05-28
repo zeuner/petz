@@ -92,7 +92,7 @@ function mobkit.hq_sleep(self, prty, force)
 						mobkit.clear_queue_high(self) --awake
 						local texture = self.textures[self.texture_no]
 						self.object:set_properties(self, {textures = {texture}}) --quit sleeping eyes
-						self.status = mobkit.remember(self, "status", "")
+						self.status = mobkit.remember(self, "status", nil)
 						return true
 				else
 					petz.do_particles_effect(self.object, self.object:get_pos(), "sleep")

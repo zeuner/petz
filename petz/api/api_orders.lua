@@ -1,7 +1,7 @@
 local modpath, S = ...
 
 petz.ownthing = function(self)
-	self.status = mobkit.remember(self, "status", "")
+	self.status = mobkit.remember(self, "status", nil)
 	if self.can_fly then
 		mobkit.hq_wanderfly(self, 0)
 	elseif self.can_swin and self.isinliquid then

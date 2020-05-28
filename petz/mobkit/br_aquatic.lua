@@ -69,7 +69,7 @@ function petz.aquatic_brain(self)
 		mokapi.make_misc_sound(self, petz.settings.misc_sound_chance, petz.settings.max_hear_distance)
 
 		--Roam default
-		if mobkit.is_queue_empty_high(self)  and self.status == "" and not(self.status== "jump") then
+		if mobkit.is_queue_empty_high(self) and not(self.status) and not(self.status== "jump") then
 			mobkit.hq_aqua_roam(self, 0, self.max_speed)
 		end
 	end

@@ -1,7 +1,7 @@
 local modpath, S = ...
 
 function petz.bh_look_at(self, player_pos, prty)
-	if not(self.status == "looking") then
+	if not(self.looking) then
 		mobkit.animate(self, "idle")
 		petz.hq_look_at(self, player_pos, prty)
 		return true
@@ -10,7 +10,7 @@ end
 
 function petz.hq_look_at(self, player_pos, prty)
 	local func = function(self)
-		if not(self.status == "looking") then
+		if not(self.looking) then
 			local random_time = math.random(2, 3)
 			petz.move_head(self, player_pos)
 			minetest.after(random_time, function(self)
@@ -18,11 +18,11 @@ function petz.hq_look_at(self, player_pos, prty)
 					mobkit.clear_queue_low(self)
 					mobkit.clear_queue_high(self)
 					petz.return_head_to_origin(self)
-					self.status = ""
+					self.looking = false
 					return true
 				end
 			end, self)
-			self.status = "looking"
+			self.looking = true
 		end
 	end
 	mobkit.queue_high(self, func, prty)

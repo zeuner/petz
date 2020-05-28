@@ -80,7 +80,7 @@ function petz.semiaquatic_brain(self)
 		end
 
 		--Roam default
-		if mobkit.is_queue_empty_high(self) and self.status == "" then
+		if mobkit.is_queue_empty_high(self) and not(self.status) then
 			if petz.isinliquid(self) then
 				mobkit.hq_aqua_roam(self, 0, self.max_speed)
 			else

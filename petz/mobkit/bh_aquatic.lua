@@ -18,7 +18,7 @@ function mobkit.hq_aqua_jump(self, prty)
 		mokapi.make_sound("object", self.object, "petz_splash", petz.settings.max_hear_distance)
 		minetest.after(0.5, function(self, velocity)
 			if mobkit.is_alive(self.object) then
-				self.status = ""
+				self.status = nil
 				mobkit.clear_queue_high(self)
 			end
 		end, self, velocity)

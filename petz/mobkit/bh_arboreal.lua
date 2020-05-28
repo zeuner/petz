@@ -54,7 +54,7 @@ end
 function mobkit.hq_climb(self, prty)
 	local func=function(self)
 		if not petz.check_tree(self) then
-			self.status = ""
+			self.status = nil
 			mobkit.clear_queue_high(self)
 			mobkit.clear_queue_low(self)
 			return true
@@ -93,7 +93,7 @@ function mobkit.lq_climb(self)
 				end
 				if climb then
 					self.object:set_pos(climb_pos)
-					self.status = ""
+					self.status = nil
 				end
 				mobkit.clear_queue_high(self)
 				mobkit.clear_queue_low(self)
