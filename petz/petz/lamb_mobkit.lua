@@ -66,11 +66,6 @@ minetest.register_entity("petz:"..pet_name,{
 	lung_capacity = 10, -- seconds
 	max_hp = 8,
 
-	head = {
-		rotation_origin = vector.new(-90, 90, 0), --in degrees, normally values are -90, 0, 90
-		position_correction = vector.new(0, 0.3, -0.0),
-	},
-
 	attack={range=0.5, damage_groups={fleshy=3}},
 	animation = {
 		walk={range={x=1, y=12}, speed=25, loop=true},
