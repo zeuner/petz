@@ -1,10 +1,14 @@
 local modpath, S = ...
 
 function petz.bh_look_at(self, player_pos, prty)
-	if not(self.looking) then
-		petz.hq_look_at(self, player_pos, prty)
-		return true
+	if not(petz.settings.look_at) or not(self.head) or not(petz.is_standing(self)) or self.looking
+		or not(math.random(1, petz.settings.look_at_random) == 1)
+		or (self.is_mountable and self.driver)
+		then
+			return false
 	end
+	petz.hq_look_at(self, player_pos, prty)
+	return true
 end
 
 function petz.hq_look_at(self, player_pos, prty)
