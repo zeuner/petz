@@ -14,7 +14,7 @@ end
 function petz.hq_look_at(self, player_pos, prty)
 	local func = function(self)
 		if not(self.looking) then
-			local random_time = math.random(2, 3)
+			local random_time = math.random(1, 2)
 			petz.move_head(self, player_pos)
 			mobkit.animate(self, "idle")
 			minetest.after(random_time, function(self)
