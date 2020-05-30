@@ -30,13 +30,8 @@ end
 
 --a movement test to move the head
 function petz.move_head(self, tpos)
-	local head_position, head_rotation = self.object:get_bone_position("head") -- get the pos and rotation of the head bone. Currently causes a bug!
 	local pos = self.object:get_pos() --the pos of the mob
 	tpos.y = tpos.y + 1.625 -- the pos of the eyes of the player
-	if not(self.head_position) then
-		local head_position, head_rotation = self.object:get_bone_position("head")
-		self.head_position = vector.add(head_position, self.head.position_correction) --correction of the pos by cause of the bug, and save it
-	end
 	local direction = vector.direction(pos, tpos) -- vector direction from mob to player's eyes
 	local look_at_dir = vector.normalize(direction) -- important: normalize the vector
 	-- Functions to calculate the pitch & yaw (in degrees):
@@ -46,10 +41,10 @@ function petz.move_head(self, tpos)
 	local final_yaw = yaw + body_yaw --get the head yaw in reference with the body
 	head_rotation = {x= pitch, y= final_yaw, z= 0} -- the head movement {pitch, yaw, roll}
 	self.head_rotation = vector.add(head_rotation, self.head.rotation_origin) --the offset for the rotation, depends on the blender model
-	self.object:set_bone_position("head", self.head_position, self.head_rotation) --set the head movement
+	self.object:set_bone_position("head", self.head.position, self.head_rotation) --set the head movement
 end
 
 --this sets the mob to move it's head back to pointing forwards
 petz.return_head_to_origin = function(self)
-	self.object:set_bone_position("head", self.head_position, self.head.rotation_origin)
+	self.object:set_bone_position("head", self.head.position, self.head.rotation_origin)
 end

@@ -45,8 +45,8 @@ minetest.register_entity("petz:"..pet_name, {
 	max_hp = 10,
 	makes_footstep_sound = false,
 	head = {
+		position = vector.new(0, 0.2908, -0.2908),
 		rotation_origin = vector.new(-90, 0, 0), --in degrees, normally values are -90, 0, 90
-		position_correction = vector.new(0, 0.3, -0.3),
 	},
 	attack={range=0.5, damage_groups={fleshy=3}},
 	animation = {
