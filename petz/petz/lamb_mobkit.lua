@@ -69,6 +69,7 @@ minetest.register_entity("petz:"..pet_name,{
 	head = {
 		position = vector.new(-0.1939, 0.2908, 0),
 		rotation_origin = vector.new(-90, 90, 0), --in degrees, normally values are -90, 0, 90
+		eye_offset = -0.3,
 	},
 
 	attack={range=0.5, damage_groups={fleshy=3}},

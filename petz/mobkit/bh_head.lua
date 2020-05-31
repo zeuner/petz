@@ -34,9 +34,16 @@ end
 
 --a movement test to move the head
 function petz.move_head(self, tpos)
+	--Get the mob pos and the player tpos of the eyes
 	local pos = self.object:get_pos() --the pos of the mob
+	pos.y = pos.y + (self.head.eye_offset or 0)
 	tpos.y = tpos.y + 1.625 -- the pos of the eyes of the player
-	local direction = vector.direction(pos, tpos) -- vector direction from mob to player's eyes
+	--debug
+	--local pos2 = pos
+	--pos2.x = pos2.x +1
+	--pos2.z = pos2.z +1
+	--minetest.add_particle{pos = pos2, texture = "water.png"}
+	local direction = vector.direction(pos, tpos) -- the vector direction from mob to player's eyes
 	local look_at_dir = vector.normalize(direction) -- important: normalize the vector
 	-- Functions to calculate the pitch & yaw (in degrees):
 	local pitch = mokapi.yaw_to_degrees(math.asin(look_at_dir.y))
