@@ -369,3 +369,18 @@ filename: petz_squirrel_moaning.ogg
 Author: Partners In Rhyme
 https://www.freesoundeffects.com/free-track/sq2-466210/
 License: Free
+--------------------------------------------
+filename: petz_leopard_roar.ogg
+Author: CGEffex
+https://freesound.org/people/CGEffex/sounds/98337/
+License: This work is licensed under the Attribution License.
+--------------------------------------------
+filename: petz_leopard_moaning.ogg
+Author: missburusdeer2011
+https://freesound.org/people/missburusdeer2011/sounds/516271/
+License: This work is licensed under the Attribution License.
+--------------------------------------------
+filename: petz_leopard_attack.ogg
+Author: Darsycho
+https://freesound.org/people/Darsycho/sounds/442114/
+License: This work is licensed under the Creative Commons 0 License.

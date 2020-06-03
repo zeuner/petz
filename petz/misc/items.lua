@@ -556,6 +556,17 @@ minetest.register_craftitem("petz:spider_eye", {
 	inventory_image = "petz_spider_eye.png",
 })
 
+--Leopard Drop
+minetest.register_craftitem("petz:leopard_skin", {
+	description = S("Leopard Skin"),
+	inventory_image = "petz_leopard_skin.png",
+})
+
+minetest.register_craftitem("petz:snow_leopard_skin", {
+	description = S("Snow Leopard Skin"),
+	inventory_image = "petz_snow_leopard_skin.png",
+})
+
 --minetest.register_node("petz:squirrel_cage", {
 	--description = S("Squirrel Cage"),
 	--drawtype = "glasslike_framed",
