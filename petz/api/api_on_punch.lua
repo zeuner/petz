@@ -8,15 +8,23 @@ petz.puncher_is_player = function(puncher)
 	end
 end
 
-petz.calculate_damage = function(tool_capabilities)
-	local damage_points
-	if tool_capabilities.damage_groups["fleshy"] ~= nil or tool_capabilities.damage_groups["fleshy"] ~= "" then
-		damage_points = tool_capabilities.damage_groups["fleshy"] or 0
-		--minetest.chat_send_player("singleplayer", "hp : "..tostring(damage_points))
+petz.calculate_damage = function(self, time_from_last_punch, tool_capabilities)
+	local tool_damage = tool_capabilities.damage_groups.fleshy or 1
+	--minetest.chat_send_all(tostring("damage= "..tool_damage))
+	local time_bonus = (1 / time_from_last_punch)
+	if time_bonus > 1 then -- the second punch in less than 1 second
+		time_bonus= petz.round(time_bonus^0.33) --cubic root
 	else
-		damage_points = 0
+		time_bonus = 0
 	end
-	return damage_points
+	--minetest.chat_send_all(tostring(time_bonus))
+	local health_bonus = petz.round((self.max_hp / self.hp)^0.33)
+	--minetest.chat_send_all(tostring(health_bonus))
+	local luck_bonus = math.random(-1, 1)
+	--minetest.chat_send_all(tostring(luck_bonus))
+	damage = tool_damage + time_bonus + health_bonus + luck_bonus
+	--minetest.chat_send_all(tostring(damage))
+	return damage
 end
 
 petz.kick_back= function(self, dir)
@@ -60,7 +68,8 @@ function petz.on_punch(self, puncher, time_from_last_punch, tool_capabilities, d
 		end
 	end
 	--Do Hurt-->
-	mobkit.hurt(self, tool_capabilities.damage_groups.fleshy or 1)
+	local damage = petz.calculate_damage(self, time_from_last_punch, tool_capabilities)
+	mobkit.hurt(self, damage)
 	--Tamagochi Mode?-->
 	petz.punch_tamagochi(self, puncher) --decrease affinity when in Tamagochi mode
 	--Check if killed by player and save it-->
