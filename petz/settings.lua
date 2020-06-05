@@ -61,6 +61,9 @@ petz.settings.fly_check_time = tonumber(settings:get("fly_check_time"))
 petz.settings.pregnant_count = tonumber(settings:get("pregnant_count"))
 petz.settings.pregnancy_time = tonumber(settings:get("pregnancy_time"))
 petz.settings.growth_time = tonumber(settings:get("growth_time"))
+--Punch Effect
+petz.settings.colorize_punch = settings:get_bool("colorize_punch", true)
+petz.settings.punch_color = settings:get("punch_color", "#FF0000")
 --Blood
 petz.settings.blood = settings:get_bool("blood", false)
 --Blood

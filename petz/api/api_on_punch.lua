@@ -67,6 +67,16 @@ function petz.on_punch(self, puncher, time_from_last_punch, tool_capabilities, d
 			return
 		end
 	end
+	--Colorize Punch Effect-->
+	if petz.settings.colorize_punch then
+		local punch_texture = self.textures[self.texture_no].."^[colorize:"..petz.settings.punch_color..":125"
+		self.object:set_properties(self, {textures = {punch_texture}})
+		minetest.after(0.1, function(self)
+			if self then
+				self.object:set_properties(self, {textures = { self.textures[self.texture_no]}})
+			end
+		end, self)
+	end
 	--Do Hurt-->
 	local damage = petz.calculate_damage(self, time_from_last_punch, tool_capabilities)
 	mobkit.hurt(self, damage)
