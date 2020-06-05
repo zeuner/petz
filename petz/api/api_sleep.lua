@@ -37,7 +37,7 @@ petz.calculate_sleep_times = function(self)
 end
 
 petz.bh_sleep = function(self, prty)
-	if not petz.settings.sleeping then
+	if(not petz.settings.sleeping) or petz.isinliquid(self) then
 		return
 	end
 	--minetest.chat_send_player("singleplayer", "ana")

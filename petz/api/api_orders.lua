@@ -30,7 +30,7 @@ petz.standhere = function(self)
 	elseif self.can_swin and petz.isinliquid(self) then
 		mobkit.animate(self, "def")
 	else
-		if self.animation["sit"] then
+		if self.animation["sit"] and not(petz.isinliquid(self)) then
 			mobkit.animate(self, "sit")
 		else
 			mobkit.animate(self, "stand")
