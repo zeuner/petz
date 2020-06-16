@@ -21,10 +21,10 @@ function petz.hq_look_at(self, player_pos, prty)
 				if mobkit.is_alive(self) then
 					mobkit.clear_queue_low(self)
 					mobkit.clear_queue_high(self)
-					local rotate_body = math.random(1, 2)
-					if rotate_body == 1 then --move the body to fit the head
-						self.object:set_yaw(body_yaw)
-					end
+					--local rotate_body = math.random(1, 2)
+					--if rotate_body == 1 then --move the body to fit the head
+						--self.object:set_yaw(body_yaw)
+					--end
 					petz.return_head_to_origin(self)
 					self.looking = false
 					return true
