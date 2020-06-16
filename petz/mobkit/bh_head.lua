@@ -15,12 +15,16 @@ function petz.hq_look_at(self, player_pos, prty)
 	local func = function(self)
 		if not(self.looking) then
 			local random_time = math.random(1, 2)
-			petz.move_head(self, player_pos)
+			local body_yaw = petz.move_head(self, player_pos)
 			mobkit.animate(self, "idle")
 			minetest.after(random_time, function(self)
 				if mobkit.is_alive(self) then
 					mobkit.clear_queue_low(self)
 					mobkit.clear_queue_high(self)
+					local rotate_body = math.random(1, 2)
+					if rotate_body == 1 then --move the body to fit the head
+						self.object:set_yaw(body_yaw)
+					end
 					petz.return_head_to_origin(self)
 					self.looking = false
 					return true
@@ -53,6 +57,8 @@ function petz.move_head(self, tpos)
 	head_rotation = {x= pitch, y= final_yaw, z= 0} -- the head movement {pitch, yaw, roll}
 	self.head_rotation = vector.add(head_rotation, self.head.rotation_origin) --the offset for the rotation, depends on the blender model
 	self.object:set_bone_position("head", self.head.position, self.head_rotation) --set the head movement
+	--minetest.chat_send_all(tostring(mokapi.degrees_to_radians(yaw)))
+	return mokapi.degrees_to_radians(final_yaw)
 end
 
 --this sets the mob to move it's head back to pointing forwards
