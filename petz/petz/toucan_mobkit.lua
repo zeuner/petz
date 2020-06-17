@@ -20,6 +20,7 @@ minetest.register_entity("petz:"..pet_name,{
 	feathered = true,
 	give_orders = true,
 	can_be_brushed = true,
+	can_perch = true,
 	capture_item = "net",
 	follow = petz.settings.toucan_follow,
 	drops = {

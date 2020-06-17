@@ -122,7 +122,7 @@ petz.create_form = function(player_name, context)
 			more_form_orders = more_form_orders..
 				"image_button_exit[5,0.375;1,1;petz_horseshoe.png;btn_horseshoes;"..tostring(horseshoes).."]"
 		end
-		if pet.type == "parrot" then
+		if pet.can_perch then
 			form_size.h = form_size.h + 1
 			buttonexit_pos.y = buttonexit_pos.y + 1
 			more_form_orders = more_form_orders..
@@ -279,7 +279,13 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		elseif fields.btn_perch_shoulder then
 			petz.standhere(pet)
 			mobkit.animate(pet, "stand")
-			pet.object:set_attach(player, "Arm_Left", {x= 0.5, y= -6.25, z=0}, {x=0, y=0, z=180})
+			local shoulder_pos
+			if pet.type == "parrot" then
+				shoulder_pos = {x= 0.5, y= -6.25, z=0}
+			else
+				shoulder_pos = {x= 0.5, y= -6.0, z=0}
+			end
+			pet.object:set_attach(player, "Arm_Left", shoulder_pos, {x=0, y=0, z=180})
 			pet.object:set_properties({physical = false,})
 			minetest.after(120.0, function(pet)
 				if mobkit.is_alive(pet) then
