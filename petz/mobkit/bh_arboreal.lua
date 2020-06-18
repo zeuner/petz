@@ -71,7 +71,11 @@ function mobkit.lq_climb(self)
 	local func = function(self)
 		local pos = self.object:get_pos()
 		pos.y = pos.y + 1
-		local node_top_name= minetest.get_node_or_nil(pos).name
+		local node_top = minetest.get_node_or_nil(pos)
+		if not(node_top) then
+			return true
+		end
+		local node_top_name= node_top.name
 		local node_front_top_name, front_top_pos = mobkit.node_name_in(self, "front_top")
 		--minetest.chat_send_all(node_top_name)
 		if node_top_name and minetest.registered_nodes[node_top_name]
