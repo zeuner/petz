@@ -47,9 +47,13 @@ end
 petz.settings.spawn_interval = tonumber(settings:get("spawn_interval"))
 petz.settings.spawn_chance = tonumber(settings:get("spawn_chance"))
 petz.settings.max_mobs = tonumber(settings:get("max_mobs"))
-petz.settings.no_spawn_in_protected = settings:get_bool("no_spawn_in_protected ", false)
-petz.settings.no_spawn_in_protected = settings:get_bool("no_spawn_in_protected ", false)
+petz.settings.no_spawn_in_protected = settings:get_bool("no_spawn_in_protected", false)
+petz.settings.no_spawn_in_protected = settings:get_bool("no_spawn_in_protected", false)
 petz.settings.spawn_peaceful_monsters_ratio = mokapi.delimit_number(tonumber(settings:get("spawn_peaceful_monsters_ratio")) or 1.0, {min=0.0, max=1.0})
+--Lifetime
+petz.settings.lifetime = tonumber(settings:get("lifetime"))
+petz.settings.lifetime_only_non_tamed = settings:get_bool("lifetime_only_non_tamed", false)
+petz.settings.lifetime_avoid_non_breedable = settings:get_bool("lifetime_avoid_non_breedable", false)
 --Lay Eggs
 petz.settings.lay_egg_chance = tonumber(settings:get("lay_egg_chance"))
 --Misc Random Sound Chance
@@ -127,6 +131,7 @@ for i = 1, #petz.petz_list do --load the settings
 	petz.settings[petz_type.."_convert"] = settings:get(petz_type.."_convert", nil)
 	petz.settings[petz_type.."_convert_to"] = settings:get(petz_type.."_convert_to", nil)
 	petz.settings[petz_type.."_convert_count"] = tonumber(settings:get(petz_type.."_convert_count")) or nil
+	petz.settings[petz_type.."_lifetime"] = tonumber(settings:get(petz_type.."_lifetime")) or nil
 	if petz_type == "beaver" then
 		petz.settings[petz_type.."_create_dam"] = settings:get_bool(petz_type.."_create_dam", false)
 	elseif petz_type == "silkworm" then

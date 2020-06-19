@@ -38,6 +38,7 @@ petz.dyn_prop = {
 	is_rut = {type= "boolean", default = false},
 	lashed = {type= "boolean", default = false},
 	lashing_count = {type= "int", default = 0},
+	lifetime = {type= "int", default = nil},
 	max_speed_forward = {type= "int", default = 1},
 	max_speed_reverse = {type= "int", default = 1},
 	milked = {type= "boolean", default = false},
@@ -250,6 +251,7 @@ function petz.set_initial_properties(self, staticdata, dtime_s)
 		self.exchange_item_amount = mobkit.remember(self, "exchange_item_amount", 1)
 		self.brushed = mobkit.remember(self, "brushed", false)
 		self.food_count = mobkit.remember(self, "food_count", 0)
+		self.lifetime = mobkit.remember(self, "lifetime", nil)
 		self.was_killed_by_player = mobkit.remember(self, "was_killed_by_player", false)
 		self.dreamcatcher = mobkit.remember(self, "dreamcatcher", false)
 		self.status = mobkit.remember(self, "status", nil)
