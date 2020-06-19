@@ -184,6 +184,9 @@ petz.create_form = function(player_name, context)
 			if pet.herd then
 				tab_form = tab_form .. "checkbox[0.375,1.75;btn_herding;"..S("Herding")..";"..petz.vartostring(pet.herding).."]"
 			end
+			if petz.check_lifetime(pet) then
+				tab_form = tab_form .. "image[2,0.375;1,1;petz_lifetime.png]" .. "label[3,0.75;"..S("Lifetime").."]".."label[3,1;"..tostring(pet.lifetime).."]"
+			end
 		end
 	elseif context.tab_id == 3 and petz.settings.selling and not(context.buy) then
 		form_size.w = form_size.w + 1

@@ -62,9 +62,10 @@ petz.on_die = function(self)
     --Drop Items-->
 	mokapi.drop_items(self, self.was_killed_by_player or nil)
 	mobkit.clear_queue_high(self)
-	--Remove the owner entry for right_click formspec-->
+	--Remove the owner entry for right_click formspec and close the formspec (it could be opened)-->
 	if petz.pet[self.owner] then
 		petz.pet[self.owner]= nil
+		minetest.close_formspec(self.owner, "petz:form_orders")
 	end
 	--Remove this petz from the list of the player pets-->
 	if self.tamed == true then
