@@ -17,12 +17,12 @@ petz.check_lifetime = function(self)
 	end
 end
 
-petz.lifetime_timer = function(self, lifetime, dtime)
+petz.lifetime_timer = function(self, lifetime, on_step_time)
 	if not(self.lifetime) then
 		self.lifetime = mobkit.remember(self, "lifetime", lifetime)
 	end
 	--minetest.chat_send_all(tostring(self.lifetime))
-	self.lifetime = mobkit.remember(self, "lifetime", self.lifetime - 1)
+	self.lifetime = mobkit.remember(self, "lifetime", self.lifetime - on_step_time)
 	if self.lifetime <= 0 then
 		petz.on_die(self)
 	end
