@@ -52,6 +52,7 @@ petz.settings.no_spawn_in_protected = settings:get_bool("no_spawn_in_protected",
 petz.settings.spawn_peaceful_monsters_ratio = mokapi.delimit_number(tonumber(settings:get("spawn_peaceful_monsters_ratio")) or 1.0, {min=0.0, max=1.0})
 --Lifetime
 petz.settings.lifetime = tonumber(settings:get("lifetime", "-1"))
+petz.settings.lifetime_variability = tonumber(settings:get("lifetime_variability", "0.2"))
 petz.settings.lifetime_only_non_tamed = settings:get_bool("lifetime_only_non_tamed", false)
 petz.settings.lifetime_avoid_non_breedable = settings:get_bool("lifetime_avoid_non_breedable", false)
 --Lay Eggs

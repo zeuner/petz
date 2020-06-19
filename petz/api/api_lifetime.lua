@@ -19,6 +19,12 @@ end
 
 petz.lifetime_timer = function(self, lifetime, on_step_time)
 	if not(self.lifetime) then
+		--Firstly apply the variability
+		local variability = lifetime * (math.random(0, petz.settings.lifetime_variability*100) / 100)
+		if math.random(1, 2) == 1 then
+			variability = -variability
+		end
+		lifetime = mokapi.round(lifetime - variability)
 		self.lifetime = mobkit.remember(self, "lifetime", lifetime)
 	end
 	--minetest.chat_send_all(tostring(self.lifetime))
