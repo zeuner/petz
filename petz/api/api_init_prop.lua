@@ -14,6 +14,7 @@ petz.dyn_prop = {
 	colorized = {type= "string", default = nil},
 	convert_count = {type= "int", default = 5},
 	dreamcatcher = {type= "boolean", default = false},
+	dead = {type= "boolean", default = false},
 	driver = {type= "player", default = nil},
 	eggs_count = {type= "int", default = 0},
 	exchange_item_index = {type= "int", default = 1},

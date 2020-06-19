@@ -5,7 +5,7 @@ local modpath, S = ...
 --
 
 petz.on_die = function(self)
-	self.dead = true --a temp variable, useful to avoid functions
+	self.dead = mobkit.remember(self, "dead", true) --a variable, useful to avoid functions
 	if self.object:get_hp() > 0 then --you can call this function directally
 		self.object:set_hp(0)
 	end
