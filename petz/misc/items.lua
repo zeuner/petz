@@ -283,21 +283,23 @@ minetest.register_craft({
     }
 })
 
--- Shears
-minetest.register_tool("petz:shears", {
-	description = S("Shears"),
-	inventory_image = "petz_shears.png",
-	groups = {flammable = 2},
-})
 
-minetest.register_craft({
-	type = "shaped",
-	output = 'petz:shears',
-	recipe = {
-		{'', 'default:steel_ingot', ''},
-		{'', 'group:stick', 'default:steel_ingot'},
-	}
-})
+if petz.settings.shears == "petz:shears" then -- Shears
+	minetest.register_tool("petz:shears", {
+		description = S("Shears"),
+		inventory_image = "petz_shears.png",
+		groups = {flammable = 2},
+	})
+
+	minetest.register_craft({
+		type = "shaped",
+		output = 'petz:shears',
+		recipe = {
+			{'', 'default:steel_ingot', ''},
+			{'', 'group:stick', 'default:steel_ingot'},
+		}
+	})
+end
 
 if petz.settings.lasso == "petz:lasso" then
 	-- Lasso

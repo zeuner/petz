@@ -74,7 +74,7 @@ petz.on_rightclick = function(self, clicker)
 	--Pet Specifics
 	--below here
 	elseif self.type == "lamb" and is_owner then
-		if (wielded_item_name == "mobs:shears" or wielded_item_name == "petz:shears") and clicker:get_inventory() and not self.shaved then
+		if wielded_item_name == petz.settings.shears and clicker:get_inventory() and not self.shaved then
 			petz.lamb_wool_shave(self, clicker) --shear it!
 		else
 			show_form = true
@@ -96,7 +96,7 @@ petz.on_rightclick = function(self, clicker)
 	elseif self.is_mountable == true and is_owner then
 		show_form = petz.mount(self, clicker, wielded_item, wielded_item_name)
 	elseif self.feathered and is_owner then
-		if (wielded_item_name == "mobs:shears" or wielded_item_name == "petz:shears") and clicker:get_inventory() then
+		if wielded_item_name == petz.settings.shears and clicker:get_inventory() then
 			petz.cut_feather(self, clicker) --cut a feather
 		else
 			show_form = true

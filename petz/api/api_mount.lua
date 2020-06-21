@@ -16,7 +16,7 @@ petz.mount = function(self, clicker, wielded_item, wielded_item_name)
 			petz.detach(clicker, {x = 1, y = 0, z = 1})
 			mobkit.clear_queue_low(self)
 			return false
-		elseif (self.saddle or self.saddlebag) and wielded_item_name == "petz:shears" then
+		elseif (self.saddle or self.saddlebag) and wielded_item_name == petz.settings.shears then
 			if self.saddle then
 				minetest.add_item(self.object:get_pos(), "petz:saddle")
 				mokapi.make_sound("object", self.object, "petz_pop_sound", petz.settings.max_hear_distance)

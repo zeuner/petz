@@ -29,6 +29,8 @@ petz.settings.type_api = settings:get("type_api", "mobs_redo")
 --Capture Mobs
 petz.settings.lasso = settings:get("lasso", "petz:lasso")
 petz.settings.rob_mobs = settings:get_bool("rob_mobs", false)
+--Shears
+petz.settings.shears = settings:get("shears", "petz:shears")
 --Look at
 petz.settings.look_at = settings:get_bool("look_at", true)
 --Selling
