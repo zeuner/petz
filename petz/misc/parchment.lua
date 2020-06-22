@@ -52,5 +52,5 @@ minetest.register_entity("petz:parchment_entity", {
     textures = {"petz_parchment_bg.png"},
     is_visible = true,
     makes_footstep_sound = false,
-    automatic_rotate = false,
+    automatic_rotate = 0,
 })
