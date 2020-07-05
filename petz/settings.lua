@@ -17,6 +17,7 @@ petz.settings.tamagochi_brush_rate = tonumber(settings:get("tamagochi_brush_rate
 petz.settings.tamagochi_beaver_oil_rate = tonumber(settings:get("tamagochi_beaver_oil_rate")) or 0.1
 petz.settings.tamagochi_lashing_rate = tonumber(settings:get("tamagochi_lashing_rate")) or 0.1
 petz.settings.tamagochi_check_if_player_online = settings:get_bool("tamagochi_check_if_player_online", true)
+petz.settings.tamagochi_hungry_warning = tonumber(settings:get("tamagochi_hungry_warning")) or 0.2
 --Create a table with safe nodes
 local tamagochi_safe_nodes = settings:get("tamagochi_safe_nodes", "")
 petz.settings.tamagochi_safe_nodes = {} --Table with safe nodes for tamagochi mode

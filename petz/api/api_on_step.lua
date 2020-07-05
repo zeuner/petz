@@ -21,5 +21,22 @@ petz.on_step = function(self, dtime)
 		if lifetime then
 			petz.lifetime_timer(self, lifetime, on_step_time)
 		end
+		--Tamagochi
+		--Check the hungry
+		if petz.settings.tamagochi_mode == true and petz.settings.tamagochi_hungry_warning > 0 then
+			if mobkit.timer(self, 2) then
+				if (self.hp / self.max_hp) <= petz.settings.tamagochi_hungry_warning then
+					local items = string.split(petz.settings[self.type.."_follow"], ',')
+					local item = petz.str_remove_spaces(items[1]) --the first one
+					local texture
+					if string.sub(item, 1, 5) == "group" then
+						texture = "petz_pet_bowl_inv.png"
+					else
+						texture = minetest.registered_items[item].inventory_image
+					end
+					petz.do_particles_effect(self.object, self.object:get_pos(), "hungry", texture)
+				end
+			end
+		end
 	end
 end
