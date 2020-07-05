@@ -23,7 +23,7 @@ petz.on_step = function(self, dtime)
 		end
 		--Tamagochi
 		--Check the hungry
-		if petz.settings.tamagochi_mode == true and petz.settings.tamagochi_hungry_warning > 0 then
+		if self.is_pet and petz.settings.tamagochi_mode == true and petz.settings.tamagochi_hungry_warning > 0 then
 			if mobkit.timer(self, 2) then
 				if (self.hp / self.max_hp) <= petz.settings.tamagochi_hungry_warning then
 					local items = string.split(petz.settings[self.type.."_follow"], ',')

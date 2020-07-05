@@ -17,7 +17,6 @@ petz.do_particles_effect = function(obj, pos, particle_type, texture_name)
         y = minpos.y - 0.5,
         z = minpos.z + 0.4
     }
-    --local texture_name
     local time
     local particles_amount
     local min_size
