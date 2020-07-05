@@ -24,7 +24,7 @@ petz.on_step = function(self, dtime)
 		--Tamagochi
 		--Check the hungry
 		if petz.settings.tamagochi_mode == true and self.is_pet and petz.settings.tamagochi_hungry_warning > 0 then
-			if not(self.follow_texture) then
+			if not(self.tmp_follow_texture) then
 				local items = string.split(petz.settings[self.type.."_follow"], ',')
 				local item = petz.str_remove_spaces(items[1]) --the first one
 				local follow_texture
@@ -33,11 +33,11 @@ petz.on_step = function(self, dtime)
 				else
 					follow_texture = minetest.registered_items[item].inventory_image
 				end
-				self.follow_texture = follow_texture --temporary property
+				self.tmp_follow_texture = follow_texture --temporary property
 			end
 			if mobkit.timer(self, 2) then
 				if (self.hp / self.max_hp) <= petz.settings.tamagochi_hungry_warning then
-					petz.do_particles_effect(self.object, self.object:get_pos(), "hungry", self.follow_texture)
+					petz.do_particles_effect(self.object, self.object:get_pos(), "hungry", self.tmp_follow_texture)
 				end
 			end
 		end
