@@ -11,6 +11,13 @@ petz.lay_egg = function(self)
 			minetest.add_item(pos, "petz:"..self.type.."_egg") --chicken/duck/penguin egg!
 		end
 	end
+	if 3 < self.recovering_eggs_count then
+		minetest.log(
+			"warning",
+			"DEBUG recovering egg count excess"
+		)
+		return
+	end
 	if self.lay_eggs_in_nest	== true then
 		local lay_range = 1
 		local nearby_nodes = minetest.find_nodes_in_area(
@@ -20,6 +27,15 @@ petz.lay_egg = function(self)
 		if #nearby_nodes > 1 then
 			local nest_to_lay = nearby_nodes[math.random(1, #nearby_nodes)]
 			minetest.set_node(nest_to_lay, {name= "petz:"..self.type.."_nest_egg"})
+			self.recovering_eggs_count = mobkit.remember(
+				self,
+				"recovering_eggs_count",
+				self.recovering_eggs_count + 1
+			)
+			minetest.log(
+				"warning",
+				"DEBUG recovering egg count " .. self.recovering_eggs_count
+			)
 		end
 	end
 end

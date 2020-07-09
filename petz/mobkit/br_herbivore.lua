@@ -192,6 +192,17 @@ function petz.herbivore_brain(self)
 		end
 
 		if prty < 2 then	--Sleep Behaviour
+			if self.lay_eggs then
+				self.recovering_eggs_count = mobkit.remember(
+					self,
+					"recovering_eggs_count",
+					0
+				)
+				minetest.log(
+					"warning",
+					"DEBUG recovering egg count " .. self.recovering_eggs_count
+				)
+			end
 			petz.bh_sleep(self, 2)
 		end
 

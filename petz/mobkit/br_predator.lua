@@ -90,6 +90,17 @@ function petz.predator_brain(self)
 
 		--Roam default
 		if mobkit.is_queue_empty_high(self) and not(self.status) then
+			if self.lay_eggs then
+				self.recovering_eggs_count = mobkit.remember(
+					self,
+					"recovering_eggs_count",
+					0
+				)
+				minetest.log(
+					"warning",
+					"DEBUG recovering egg count " .. self.recovering_eggs_count
+				)
+			end
 			mobkit.hq_roam(self, 0)
 		end
 

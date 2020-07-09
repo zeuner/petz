@@ -47,6 +47,7 @@ petz.dyn_prop = {
 	owner = {type= "string", default = nil},
 	pregnant_count = {type= "int", default = petz.settings.pregnant_count},
 	pregnant_time = {type= "int", default = 0},
+	recovering_eggs_count = {type= "int", default = 0},
 	saddle = {type= "boolean", default = false},
 	saddlebag = {type= "boolean", default = false},
 	saddlebag_inventory = {type= "table", default = nil},
@@ -224,6 +225,7 @@ function petz.set_initial_properties(self, staticdata, dtime_s)
 			mobkit.remember(self, "genes", self.genes)
 		end
 		if self.lay_eggs == true then
+			self.recovering_eggs_count = mobkit.remember(self, "recovering_eggs_count", 0)
 			self.eggs_count = mobkit.remember(self, "eggs_count", 0)
 		end
 		--ALL the mobs
