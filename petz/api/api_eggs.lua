@@ -36,6 +36,16 @@ petz.lay_egg = function(self)
 				"warning",
 				"DEBUG recovering egg count " .. self.recovering_eggs_count
 			)
+			self.recovering_eggs_time = mobkit.remember(
+				self,
+				"recovering_eggs_time",
+				minetest.get_gametime(
+				)
+			)
+			minetest.log(
+				"warning",
+				"DEBUG recovering egg time " .. self.recovering_eggs_time
+			)
 		end
 	end
 end
