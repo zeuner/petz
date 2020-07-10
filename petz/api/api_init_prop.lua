@@ -48,6 +48,7 @@ petz.dyn_prop = {
 	pregnant_count = {type= "int", default = petz.settings.pregnant_count},
 	pregnant_time = {type= "int", default = 0},
 	recovering_eggs_count = {type= "int", default = 0},
+	recovering_eggs_time = {type= "int", default = 0},
 	saddle = {type= "boolean", default = false},
 	saddlebag = {type= "boolean", default = false},
 	saddlebag_inventory = {type= "table", default = nil},
