@@ -28,9 +28,17 @@ function petz.bee_brain(self)
 	elseif (petz.is_night() and not(self.queen)) then --all the bees sleep in their beehive
 		if behive_exists then
 			bee_count = bee_count + 1
+			minetest.log(
+				"warning",
+				"DEBUG bee_count self.hive " .. bee_count
+			)
 			meta:set_int("bee_count", bee_count)
 			if self.pollen == true and (honey_count < petz.settings.max_honey_behive) then
 				honey_count = honey_count + 1
+				minetest.log(
+					"warning",
+					"DEBUG honey_count self.hive " .. honey_count
+				)
 				meta:set_int("honey_count", honey_count)
 			end
 			petz.set_infotext_behive(meta, honey_count, bee_count)
