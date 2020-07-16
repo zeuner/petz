@@ -349,6 +349,10 @@ minetest.register_node("petz:beehive", {
 		timer:start(2.0) -- in seconds
 		local honey_count = petz.settings.initial_honey_behive
 		meta:set_int("honey_count", honey_count)
+		minetest.log(
+			"warning",
+			"DEBUG honey_count " .. pos.x .. "," .. pos.y .. "," .. pos.z .. " " .. honey_count
+		)
 		local bee_count = petz.settings.max_bees_behive
 		meta:set_int("total_bees", bee_count)
 		meta:set_int("bee_count", bee_count)
@@ -356,16 +360,59 @@ minetest.register_node("petz:beehive", {
 	end,
 	after_place_node = function(pos, placer, itemstack, pointed_thing)
 		local meta = minetest.get_meta(pos)
-		local honey_count = petz.settings.initial_honey_behive
-		meta:set_int("honey_count", honey_count)
+		local honey_count
 		local bee_count
 		if placer:is_player() then
-			bee_count = 1
+			honey_count = 0
+			bee_count = 0
+			minetest.after(
+				600.0,
+				function (
+					pos
+				)
+					local meta = minetest.get_meta(
+						pos
+					)
+					local bee_count = meta:get_int(
+						"bee_count"
+					)
+					local total_bees = meta:get_int(
+						"total_bees"
+					)
+					if 0 == bee_count then
+						bee_count = bee_count + 1
+						total_bees = total_bees + 1
+						minetest.log(
+							"warning",
+							"DEBUG bee_count " .. pos.x .. "," .. pos.y .. "," .. pos.z .. " " .. bee_count
+						)
+						meta:set_int(
+							'bee_count',
+							bee_count
+						)
+						meta:set_int(
+							'total_bees',
+							total_bees
+						)
+					end
+				end,
+				pos
+			)
 		else
+			honey_count = petz.settings.initial_honey_behive
 			bee_count = petz.settings.max_bees_behive
 		end
+		meta:set_int("honey_count", honey_count)
 		meta:set_int("bee_count", bee_count)
 		meta:set_int("total_bees", bee_count)
+		minetest.log(
+			"warning",
+			"DEBUG honey_count " .. pos.x .. "," .. pos.y .. "," .. pos.z .. " " .. honey_count
+		)
+		minetest.log(
+			"warning",
+			"DEBUG bee_count " .. pos.x .. "," .. pos.y .. "," .. pos.z .. " " .. bee_count
+		)
 		petz.set_infotext_behive(meta, honey_count, bee_count)
 	end,
 	on_destruct = function(pos)
@@ -406,6 +453,10 @@ minetest.register_node("petz:beehive", {
 					local bee_entity = bee:get_luaentity()
 					bee_entity.behive = mobkit.remember(bee_entity, "behive", pos)
 					bee_count = bee_count - 1
+					minetest.log(
+						"warning",
+						"DEBUG bee_count " .. pos.x .. "," .. pos.y .. "," .. pos.z .. " " .. bee_count
+					)
 					meta:set_int("bee_count", bee_count)
 					petz.set_infotext_behive(meta, honey_count, bee_count)
 				end
@@ -432,6 +483,10 @@ minetest.register_node("petz:beehive", {
 					itemstack:take_item()
 					honey_count = honey_count - 1
 					meta:set_int("honey_count", honey_count)
+					minetest.log(
+						"warning",
+						"DEBUG honey_count " .. pos.x .. "," .. pos.y .. "," .. pos.z .. " " .. honey_count
+					)
 					petz.set_infotext_behive(meta, honey_count, bee_count)
 					return itemstack
 				else
@@ -445,6 +500,10 @@ minetest.register_node("petz:beehive", {
 			if total_bees < petz.settings.max_bees_behive then
 				bee_count = bee_count + 1
 				total_bees = total_bees + 1
+				minetest.log(
+					"warning",
+					"DEBUG bee_count " .. pos.x .. "," .. pos.y .. "," .. pos.z .. " " .. bee_count
+				)
 				meta:set_int("bee_count", bee_count)
 				meta:set_int("total_bees", total_bees)
 				petz.set_infotext_behive(meta, honey_count, bee_count)
