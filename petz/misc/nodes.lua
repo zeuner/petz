@@ -354,7 +354,7 @@ minetest.register_node("petz:beehive", {
 			)
 		)
 		minetest.after(
-			60.0,
+			900.0,
 			meta.set_string,
 			meta,
 			'destruction_mode',
