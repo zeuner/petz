@@ -344,7 +344,22 @@ minetest.register_node("petz:beehive", {
 		local	drops = {
 			{name = "petz:honeycomb", chance = 1, min = 6, max= 6},
 		}
-		meta:set_string("drops", minetest.serialize(drops))
+		minetest.after(
+			1200.0,
+			meta.set_string,
+			meta,
+			'drops',
+			minetest.serialize(
+				drops
+			)
+		)
+		minetest.after(
+			60.0,
+			meta.set_string,
+			meta,
+			'destruction_mode',
+			"queen_born"
+		)
 		local timer = minetest.get_node_timer(pos)
 		timer:start(2.0) -- in seconds
 		local honey_count = petz.settings.initial_honey_behive
@@ -416,7 +431,26 @@ minetest.register_node("petz:beehive", {
 		petz.set_infotext_behive(meta, honey_count, bee_count)
 	end,
 	on_destruct = function(pos)
-		local self = minetest.add_entity(pos, "petz:queen_bee")
+		local destruction_handlers = {
+			queen_born = function(
+			)
+				local self = minetest.add_entity(pos, "petz:queen_bee")
+			end
+		}
+		local meta = minetest.get_meta(
+			pos
+		)
+		if meta then
+			local destruction_handler = destruction_handlers[
+				meta:get_string(
+					"destruction_mode"
+				)
+			]
+			if destruction_handler then
+				destruction_handler(
+				)
+			end
+		end
 		mokapi.node_drop_items(pos)
 	end,
 	on_timer = function(pos)
