@@ -59,6 +59,7 @@ petz.settings.lifetime_only_non_tamed = settings:get_bool("lifetime_only_non_tam
 petz.settings.lifetime_avoid_non_breedable = settings:get_bool("lifetime_avoid_non_breedable", false)
 --Lay Eggs
 petz.settings.lay_egg_chance = tonumber(settings:get("lay_egg_chance"))
+petz.settings.egg_recovery_delay = tonumber(settings:get("egg_recovery_delay"))
 --Misc Random Sound Chance
 petz.settings.misc_sound_chance = tonumber(settings:get("misc_sound_chance"))
 petz.settings.max_hear_distance = tonumber(settings:get("max_hear_distance"))

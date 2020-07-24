@@ -198,7 +198,7 @@ function petz.herbivore_brain(self)
 				local now = minetest.get_gametime(
 				)
 				if (
-					self.recovering_eggs_time + 1200
+					self.recovering_eggs_time + petz.settings.egg_recovery_delay
 				) < now then
 					self.recovering_eggs_count = mobkit.remember(
 						self,
