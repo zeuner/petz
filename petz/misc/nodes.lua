@@ -345,7 +345,7 @@ minetest.register_node("petz:beehive", {
 			{name = "petz:honeycomb", chance = 1, min = 6, max= 6},
 		}
 		minetest.after(
-			1200.0,
+			petz.settings.honeycomb_delay,
 			meta.set_string,
 			meta,
 			'drops',
@@ -354,7 +354,7 @@ minetest.register_node("petz:beehive", {
 			)
 		)
 		minetest.after(
-			900.0,
+			petz.settings.queen_bee_delay,
 			meta.set_string,
 			meta,
 			'destruction_mode',
@@ -381,7 +381,7 @@ minetest.register_node("petz:beehive", {
 			honey_count = 0
 			bee_count = 0
 			minetest.after(
-				600.0,
+				petz.settings.worker_bee_delay,
 				function (
 					pos
 				)

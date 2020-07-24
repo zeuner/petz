@@ -105,6 +105,9 @@ petz.settings.max_bees_behive = tonumber(settings:get("max_bees_behive", "3"))
 petz.settings.bee_outing_ratio = tonumber(settings:get("bee_outing_ratio", "20"))
 --petz.settings.behive_spawn_chance  = tonumber(settings:get("behive_spawn_chance")) or 0.0
 --petz.settings.max_behives_in_area  = tonumber(settings:get("max_behives_in_area")) or 0.0
+petz.settings.honeycomb_delay = tonumber(settings:get("honeycomb_delay", "1200"))
+petz.settings.queen_bee_delay = tonumber(settings:get("queen_bee_delay", "900"))
+petz.settings.worker_bee_delay = tonumber(settings:get("worker_bee_delay", "600"))
 --Weapons
 petz.settings.pumpkin_grenade_damage = tonumber(settings:get("pumpkin_grenade_damage", "8"))
 --Horseshoes
