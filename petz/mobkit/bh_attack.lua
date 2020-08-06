@@ -5,7 +5,7 @@ local modpath, S = ...
 --
 
 function petz.bh_attack_player(self, pos, prty, player)
-	if (self.attack_pack) and not(self.warn_attack) then
+	if (self.attack_pack) and not(self.warn_asensorsttack) then
 		if petz.bh_check_pack(self) then
 			self.warn_attack = true
 		end
