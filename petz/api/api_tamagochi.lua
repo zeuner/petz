@@ -105,7 +105,7 @@ petz.timer = function(self)
             if self.hp <= 0 then
                 minetest.chat_send_player(self.owner, S("Your").. " "..self.type.." "..S("has starved to death!!!"))
                 self.init_tamagochi_timer  = false -- no more timing
-            --I the pet get bored of you
+            --If the pet get bored of you
             elseif (self.has_affinity == true) and (self.affinity == 0) then
 				local msg = S("Your").." "..self.type.." "..S("has abandoned you!!!")
 				petz.abandon_pet(self, msg)
