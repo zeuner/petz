@@ -86,10 +86,7 @@ function mobkit.lq_climb(self)
 					pos.y = pos.y + 1.1
 					local node = minetest.get_node_or_nil(pos)
 					if not node then
-						minetest.log(
-							"warning",
-							"could not get node " .. pos.x .. "," .. pos.y .. "," .. pos.z
-						)
+						climb = false
 						break
 					end
 					local node_name = node.name
@@ -98,7 +95,7 @@ function mobkit.lq_climb(self)
 						pos.y = pos.y + 0.5
 						climb_pos = pos
 						break
-					elseif not(petz.is_tree_like(node_name)) then
+					elseif not(petz.is_tree_like(node.name)) then
 						climb = false
 						break
 					end
