@@ -408,7 +408,7 @@ for key, value in ipairs(settings_def) do
 end
 
 --Selling
-petz.settings.selling_exchange_items = string.split(user:get("selling_exchange_items", "") or settings:get("selling_exchange_items", ""), ",")
+petz.settings.selling_exchange_items = string.split(user:get("selling_exchange_items") or settings:get("selling_exchange_items", ""), ",")
 petz.settings.selling_exchange_items_list = {}
 for i = 1, #petz.settings.selling_exchange_items do
 	local exchange_item = petz.settings.selling_exchange_items[i]
