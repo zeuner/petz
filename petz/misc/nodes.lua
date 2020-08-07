@@ -197,9 +197,7 @@ minetest.register_abm({
             if not minetest.registered_entities["petz:ducky"] then
                 return
             end
-            --pos.y = pos.y + 1
-            local mob = minetest.add_entity(pos_above, "petz:ducky")
-            local ent = mob:get_luaentity()
+            minetest.add_entity(pos_above, "petz:ducky")
             minetest.set_node(pos, {name= "petz:ducky_nest"})
         end
     end
@@ -216,9 +214,7 @@ minetest.register_abm({
             if not minetest.registered_entities["petz:chicken"] then
                 return
             end
-            --pos.y = pos.y + 1
-            local mob = minetest.add_entity(pos_above, "petz:chicken")
-            local ent = mob:get_luaentity()
+            minetest.add_entity(pos_above, "petz:chicken")
             minetest.set_node(pos, {name= "petz:ducky_nest"})
         end
     end
@@ -342,7 +338,7 @@ minetest.register_node("petz:beehive", {
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		local	drops = {
-			{name = "petz:honeycomb", chance = 1, min = 6, max= 6},
+			{name = "petz:honeycomb", chance = 1, min = 1, max= 6},
 		}
 		meta:set_string("drops", minetest.serialize(drops))
 		local timer = minetest.get_node_timer(pos)
@@ -356,20 +352,39 @@ minetest.register_node("petz:beehive", {
 	end,
 	after_place_node = function(pos, placer, itemstack, pointed_thing)
 		local meta = minetest.get_meta(pos)
-		local honey_count = petz.settings.initial_honey_behive
-		meta:set_int("honey_count", honey_count)
+		local honey_count
 		local bee_count
 		if placer:is_player() then
-			bee_count = 1
+			honey_count = 0
+			bee_count = 0
+			minetest.after(petz.settings.worker_bee_delay, function(beehive_pos)
+				local node =minetest.get_node_or_nil(beehive_pos)
+				if not(node and node.name == "petz:beehive") then
+					return
+				end
+				meta = minetest.get_meta(beehive_pos)
+				local total_bees = meta:get_int("total_bees") or petz.settings.max_bees_behive
+				if total_bees < petz.settings.max_bees_behive then
+					bee_count = meta:get_int("bee_count")
+					bee_count = bee_count + 1
+					total_bees = total_bees + 1
+					meta:set_int('bee_count', bee_count)
+					meta:set_int('total_bees', total_bees)
+					honey_count = meta:get_int('honey_count')
+					petz.set_infotext_behive(meta, honey_count, bee_count)
+				end
+			end, pos)
 		else
+			honey_count = petz.settings.initial_honey_behive
 			bee_count = petz.settings.max_bees_behive
 		end
+		meta:set_int("honey_count", honey_count)
 		meta:set_int("bee_count", bee_count)
 		meta:set_int("total_bees", bee_count)
 		petz.set_infotext_behive(meta, honey_count, bee_count)
 	end,
 	on_destruct = function(pos)
-		local self = minetest.add_entity(pos, "petz:queen_bee")
+		minetest.add_entity(pos, "petz:queen_bee")
 		mokapi.node_drop_items(pos)
 	end,
 	on_timer = function(pos)
@@ -462,7 +477,7 @@ minetest.register_craft({
 	output = "petz:beehive",
 	recipe = {
 		{"petz:honeycomb", "petz:honeycomb", "petz:honeycomb"},
-		{"petz:honeycomb", "petz:bee_set", "petz:honeycomb"},
+		{"petz:honeycomb", "petz:queen_bee_set", "petz:honeycomb"},
 		{"petz:honeycomb", "petz:honeycomb", "petz:honeycomb"},
 	}
 })
@@ -695,5 +710,3 @@ minetest.register_node("petz:honey_block", {
 	light_source = default.LIGHT_MAX - 1,
 	sounds = default.node_sound_glass_defaults(),
 })
-
-
