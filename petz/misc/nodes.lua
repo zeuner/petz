@@ -481,16 +481,6 @@ minetest.register_craft({
 	output = "petz:beehive",
 	recipe = {
 		{"petz:honeycomb", "petz:honeycomb", "petz:honeycomb"},
-		{"petz:honeycomb", "petz:bee_set", "petz:honeycomb"},
-		{"petz:honeycomb", "petz:honeycomb", "petz:honeycomb"},
-	}
-})
-
-minetest.register_craft({
-	type = "shaped",
-	output = "petz:beehive",
-	recipe = {
-		{"petz:honeycomb", "petz:honeycomb", "petz:honeycomb"},
 		{"petz:honeycomb", "petz:queen_bee_set", "petz:honeycomb"},
 		{"petz:honeycomb", "petz:honeycomb", "petz:honeycomb"},
 	}
