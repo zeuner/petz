@@ -55,11 +55,6 @@ minetest.register_entity("petz:"..pet_name,{
 	skin_colors = skin_colors,
 	visual_size = visual_size,
 	visual_size_baby = visual_size_baby,
-	replace_rate = 10,
-    replace_what = {
-        {"group:grass", "air", -1},
-        {"default:dirt_with_grass", "default:dirt", -2}
-    },
 	static_save = true,
 	get_staticdata = mobkit.statfunc,
 	-- api props
