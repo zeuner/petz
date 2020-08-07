@@ -197,9 +197,7 @@ minetest.register_abm({
             if not minetest.registered_entities["petz:ducky"] then
                 return
             end
-            --pos.y = pos.y + 1
-            local mob = minetest.add_entity(pos_above, "petz:ducky")
-            local ent = mob:get_luaentity()
+            minetest.add_entity(pos_above, "petz:ducky")
             minetest.set_node(pos, {name= "petz:ducky_nest"})
         end
     end
@@ -216,9 +214,7 @@ minetest.register_abm({
             if not minetest.registered_entities["petz:chicken"] then
                 return
             end
-            --pos.y = pos.y + 1
-            local mob = minetest.add_entity(pos_above, "petz:chicken")
-            local ent = mob:get_luaentity()
+            minetest.add_entity(pos_above, "petz:chicken")
             minetest.set_node(pos, {name= "petz:ducky_nest"})
         end
     end
@@ -361,15 +357,15 @@ minetest.register_node("petz:beehive", {
 		if placer:is_player() then
 			honey_count = 0
 			bee_count = 0
-			minetest.after(petz.settings.worker_bee_delay, function(pos)
-				local node =minetest.get_node_or_nil(pos)
+			minetest.after(petz.settings.worker_bee_delay, function(beehive_pos)
+				local node =minetest.get_node_or_nil(beehive_pos)
 				if not(node and node.name == "petz:beehive") then
 					return
 				end
-				local meta = minetest.get_meta(pos)
+				meta = minetest.get_meta(beehive_pos)
 				local total_bees = meta:get_int("total_bees") or petz.settings.max_bees_behive
 				if total_bees < petz.settings.max_bees_behive then
-					local bee_count = meta:get_int("bee_count")
+					bee_count = meta:get_int("bee_count")
 					bee_count = bee_count + 1
 					total_bees = total_bees + 1
 					meta:set_int('bee_count', bee_count)
@@ -388,7 +384,7 @@ minetest.register_node("petz:beehive", {
 		petz.set_infotext_behive(meta, honey_count, bee_count)
 	end,
 	on_destruct = function(pos)
-		local self = minetest.add_entity(pos, "petz:queen_bee")
+		minetest.add_entity(pos, "petz:queen_bee")
 		mokapi.node_drop_items(pos)
 	end,
 	on_timer = function(pos)
