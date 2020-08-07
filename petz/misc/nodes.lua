@@ -335,6 +335,7 @@ minetest.register_node("petz:beehive", {
 	groups = {snappy = 2, choppy = 2, oddly_breakable_by_hand = 3,
 		flammable = 3, wool = 1},
 	sounds = default.node_sound_defaults(),
+	drop = {},
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		local	drops = {
