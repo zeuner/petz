@@ -342,7 +342,7 @@ minetest.register_node("petz:beehive", {
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		local	drops = {
-			{name = "petz:honeycomb", chance = 1, min = 6, max= 6},
+			{name = "petz:honeycomb", chance = 1, min = 1, max= 6},
 		}
 		meta:set_string("drops", minetest.serialize(drops))
 		local timer = minetest.get_node_timer(pos)
@@ -356,14 +356,33 @@ minetest.register_node("petz:beehive", {
 	end,
 	after_place_node = function(pos, placer, itemstack, pointed_thing)
 		local meta = minetest.get_meta(pos)
-		local honey_count = petz.settings.initial_honey_behive
-		meta:set_int("honey_count", honey_count)
+		local honey_count
 		local bee_count
 		if placer:is_player() then
-			bee_count = 1
+			honey_count = 0
+			bee_count = 0
+			minetest.after(petz.settings.worker_bee_delay, function(pos)
+				local node =minetest.get_node_or_nil(pos)
+				if not(node and node.name == "petz:beehive") then
+					return
+				end
+				local meta = minetest.get_meta(pos)
+				local total_bees = meta:get_int("total_bees") or petz.settings.max_bees_behive
+				if total_bees < petz.settings.max_bees_behive then
+					local bee_count = meta:get_int("bee_count")
+					bee_count = bee_count + 1
+					total_bees = total_bees + 1
+					meta:set_int('bee_count', bee_count)
+					meta:set_int('total_bees', total_bees)
+					honey_count = meta:get_int('honey_count')
+					petz.set_infotext_behive(meta, honey_count, bee_count)
+				end
+			end, pos)
 		else
+			honey_count = petz.settings.initial_honey_behive
 			bee_count = petz.settings.max_bees_behive
 		end
+		meta:set_int("honey_count", honey_count)
 		meta:set_int("bee_count", bee_count)
 		meta:set_int("total_bees", bee_count)
 		petz.set_infotext_behive(meta, honey_count, bee_count)
@@ -463,6 +482,16 @@ minetest.register_craft({
 	recipe = {
 		{"petz:honeycomb", "petz:honeycomb", "petz:honeycomb"},
 		{"petz:honeycomb", "petz:bee_set", "petz:honeycomb"},
+		{"petz:honeycomb", "petz:honeycomb", "petz:honeycomb"},
+	}
+})
+
+minetest.register_craft({
+	type = "shaped",
+	output = "petz:beehive",
+	recipe = {
+		{"petz:honeycomb", "petz:honeycomb", "petz:honeycomb"},
+		{"petz:honeycomb", "petz:queen_bee_set", "petz:honeycomb"},
 		{"petz:honeycomb", "petz:honeycomb", "petz:honeycomb"},
 	}
 })
@@ -695,5 +724,3 @@ minetest.register_node("petz:honey_block", {
 	light_source = default.LIGHT_MAX - 1,
 	sounds = default.node_sound_glass_defaults(),
 })
-
-
