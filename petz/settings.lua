@@ -104,6 +104,7 @@ petz.settings.initial_honey_behive = tonumber(user:get("initial_honey_behive", "
 petz.settings.max_honey_behive = tonumber(user:get("max_honey_behive", "10") or settings:get("max_honey_behive", "10"))
 petz.settings.max_bees_behive = tonumber(user:get("max_bees_behive", "3") or settings:get("max_bees_behive", "3"))
 petz.settings.bee_outing_ratio = tonumber(user:get("bee_outing_ratio", "20") or settings:get("bee_outing_ratio", "20"))
+petz.settings.worker_bee_delay = tonumber(user:get("worker_bee_delay", "300") or  settings:get("worker_bee_delay", "300"))
 --petz.settings.behive_spawn_chance  = tonumber(settings:get("behive_spawn_chance")) or 0.0
 --petz.settings.max_behives_in_area  = tonumber(settings:get("max_behives_in_area")) or 0.0
 petz.settings.honeycomb_delay = tonumber(settings:get("honeycomb_delay", "1200"))
