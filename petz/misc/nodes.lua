@@ -146,6 +146,21 @@ minetest.register_node("petz:ducky_nest_egg", {
         type = "fixed",
         fixed= {-0.25, -0.75, -0.25, 0.25, -0.25, 0.25},
     },
+    on_construct = function(pos)
+		local timer = minetest.get_node_timer(pos)
+		timer:start(math.random(400, 600))
+    end,
+	on_timer = function(pos)
+        local pos_above = {x = pos.x, y = pos.y +1, z= pos.z}
+        if pos_above then
+            if not minetest.registered_entities["petz:ducky"] then
+                return
+            end
+            minetest.add_entity(pos_above, "petz:ducky")
+            minetest.set_node(pos, {name= "petz:ducky_nest"})
+            return true
+        end
+    end,
 	on_rightclick = function(pos, node, player, itemstack, pointed_thing)
 		petz.extract_egg_from_nest(pos, player, "petz:ducky_egg") --extract the egg
 	end,
@@ -170,6 +185,21 @@ minetest.register_node("petz:chicken_nest_egg", {
         type = "fixed",
         fixed= {-0.25, -0.75, -0.25, 0.25, -0.25, 0.25},
     },
+    on_construct = function(pos)
+		local timer = minetest.get_node_timer(pos)
+		timer:start(math.random(400, 600))
+    end,
+	on_timer = function(pos)
+		local pos_above = {x = pos.x, y = pos.y +1, z= pos.z}
+		if pos_above then
+			if not minetest.registered_entities["petz:chicken"] then
+				return
+			end
+			minetest.add_entity(pos_above, "petz:chicken")
+			minetest.set_node(pos, {name= "petz:ducky_nest"})
+			return true
+		end
+	end,
 	on_rightclick = function(pos, node, player, itemstack, pointed_thing)
 		petz.extract_egg_from_nest(pos, player, "petz:chicken_egg") --extract the egg
 	end,
@@ -183,41 +213,6 @@ minetest.register_craft({
         {'group:leaves', 'petz:ducky_egg', 'group:leaves'},
         {'default:papyrus', 'default:papyrus', 'default:papyrus'},
     }
-})
-
--- Chance to hatch an egg into a ducky or chicken
-minetest.register_abm({
-    nodenames = {"petz:ducky_nest_egg"},
-    neighbors = {},
-    interval = 600.0, -- Run every 10 minuts
-    chance = 5, -- Select every 1 in 3 nodes
-    action = function(pos, node, active_object_count, active_object_count_wider)
-        local pos_above = {x = pos.x, y = pos.y +1, z= pos.z}
-        if pos_above then
-            if not minetest.registered_entities["petz:ducky"] then
-                return
-            end
-            minetest.add_entity(pos_above, "petz:ducky")
-            minetest.set_node(pos, {name= "petz:ducky_nest"})
-        end
-    end
-})
-
-minetest.register_abm({
-    nodenames = {"petz:chicken_nest_egg"},
-    neighbors = {},
-    interval = 600.0, -- Run every 10 minuts
-    chance = 5, -- Select every 1 in 3 nodes
-    action = function(pos, node, active_object_count, active_object_count_wider)
-        local pos_above = {x = pos.x, y = pos.y +1, z= pos.z}
-        if pos_above then
-            if not minetest.registered_entities["petz:chicken"] then
-                return
-            end
-            minetest.add_entity(pos_above, "petz:chicken")
-            minetest.set_node(pos, {name= "petz:ducky_nest"})
-        end
-    end
 })
 
 --Vanilla Wool
@@ -335,6 +330,7 @@ minetest.register_node("petz:beehive", {
 	groups = {snappy = 2, choppy = 2, oddly_breakable_by_hand = 3,
 		flammable = 3, wool = 1},
 	sounds = default.node_sound_defaults(),
+	drop = {},
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		local	drops = {
