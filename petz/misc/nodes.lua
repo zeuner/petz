@@ -336,22 +336,7 @@ minetest.register_node("petz:beehive", {
 		local	drops = {
 			{name = "petz:honeycomb", chance = 1, min = 1, max= 6},
 		}
-		minetest.after(
-			petz.settings.honeycomb_delay,
-			meta.set_string,
-			meta,
-			'drops',
-			minetest.serialize(
-				drops
-			)
-		)
-		minetest.after(
-			petz.settings.queen_bee_delay,
-			meta.set_string,
-			meta,
-			'destruction_mode',
-			"queen_born"
-		)
+		meta:set_string("drops", minetest.serialize(drops))
 		local timer = minetest.get_node_timer(pos)
 		timer:start(2.0) -- in seconds
 		local honey_count = petz.settings.initial_honey_behive
