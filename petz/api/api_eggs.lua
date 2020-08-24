@@ -18,7 +18,8 @@ petz.lay_egg = function(self)
 			minetest.add_item(pos, "petz:"..self.type.."_egg") --chicken/duck/penguin egg!
 			petz.increase_egg_count(self)
 		end
-	elseif self.lay_eggs_in_nest == true then
+	end
+	if self.lay_eggs_in_nest == true then
 		local lay_range = 1
 		local nearby_nodes = minetest.find_nodes_in_area(
 			{x = pos.x - lay_range, y = pos.y - 1, z = pos.z - lay_range},
