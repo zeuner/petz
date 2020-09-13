@@ -173,6 +173,11 @@ local settings_def = {
 	type = "number",
 	default = 90000,
 	},
+	{
+	name = "max_laid_eggs",
+	type = "number",
+	default = 10,
+	},
 	--Misc Random Sound Chance
 	{
 	name = "misc_sound_chance",
